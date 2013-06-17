@@ -55,7 +55,7 @@ public class CheatBase {
 	long then;
 	
 	public String modName = "Cheat Pack 2";
-	
+	public String classOriginal = "The Colony - Opensource project.";
 	public String version = "Minecraft 1.5.2";
 	public String copyright = "(C) Kodehawa's Mods Team 2012-2013";
 	
