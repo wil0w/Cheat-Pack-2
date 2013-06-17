@@ -21,7 +21,7 @@ import org.lwjgl.input.Keyboard;
 
 public final class CheatPack
 {
-    public static final String copyright = "Cheat Pack 1.5 #2 by Binkan Salaryman";
+    public static final String copyright = "Cheat Pack 2 #4 by Kodehawa";
     public static final CheatPack coreBase;
     public static CBOriginal sspBase = new CBOriginal();
     public static CBOriginal smpBase = new CBOriginal();
