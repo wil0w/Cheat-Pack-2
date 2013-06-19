@@ -31,15 +31,13 @@ public class MiningBot extends Mod implements Tickable {
 		} catch ( AWTException e ) {
 			// TODO Auto-generated catch block
 			mc.thePlayer.addChatMessage( ChatColour.DARK_RED + "WARNING!" + ChatColour.DARK_AQUA + "MineBot could not be created!" );
-			mc.thePlayer.addChatMessage( ChatColour.DARK_AQUA + "Please report the following error to godshawk:" );
+			mc.thePlayer.addChatMessage( ChatColour.DARK_AQUA + "Please report the following error to Kodehawa:" );
 			mc.thePlayer.addChatMessage( ChatColour.RED + e.getStackTrace( ) );
 			this.turnOff( );
 		}
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.godshawk.colony.util.Tickable#tick()
-	 */
+	
 	@Override
 	public void tick( ) {
 		// TODO Auto-generated method stub
@@ -48,9 +46,7 @@ public class MiningBot extends Mod implements Tickable {
 		}
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.godshawk.colony.mods.Mod#onEnable()
-	 */
+
 	@Override
 	public void onEnable( ) {
 		// TODO Auto-generated method stub
@@ -58,9 +54,7 @@ public class MiningBot extends Mod implements Tickable {
 		cb.getUtils( ).addChatMessage( getActive( ) );
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.godshawk.colony.mods.Mod#onDisable()
-	 */
+
 	@Override
 	public void onDisable( ) {
 		// TODO Auto-generated method stub
