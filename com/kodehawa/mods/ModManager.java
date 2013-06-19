@@ -1,3 +1,25 @@
+/*
+* Copyright (c) 2013 David Rubio
+*
+* Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files (the "Software"), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions:
+*
+* The above copyright notice and this permission notice shall be included in
+* all copies or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+* THE SOFTWARE.
+*/
+
 package com.kodehawa.mods;
 
 import java.util.ArrayList;
@@ -17,13 +39,11 @@ public class ModManager {
 		
 		// World mods
 		addWMod( new AutoFish( c, c.minecraft ) );
-		//addWMod( new ChestESP( c, c.minecraft ) );
 		addWMod( new FastPlace( c, c.minecraft ) );
 		addWMod( new Fullbright( c, c.minecraft ) );
 		addWMod( new Waterwalk( c, c.minecraft ) );
 		addWMod( new Xray( c, c.minecraft ) );
-		addWMod( new Waypoints( c, c.minecraft ) );
-		addWMod( new Trajectories( c, c.minecraft ) );
+		
 		
 		
 		// Player mods
@@ -31,12 +51,11 @@ public class ModManager {
 		addPMod( new KillAura( c, c.minecraft ) );
 		addPMod( new Invulnerable(c, c.minecraft));
 		addPMod( new NoFall( c, c.minecraft ) );
-		addPMod( new PlayerESP( c, c.minecraft ) );
 		addPMod( new Sprint( c, c.minecraft ) );
 		addPMod( new Tracer( c, c.minecraft ) );
 		addPMod( new FasterWalk(c, c.minecraft ) );
 		addPMod( new AutoHealth( c, c.minecraft ) );
-		//addPMod( new InvEdit( c,c.minecraft ) );
+		
 		
 		
 		// Main mod list

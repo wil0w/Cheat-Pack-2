@@ -1,27 +1,40 @@
+/*
+* Copyright (c) 2013 David Rubio
+*
+* Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files (the "Software"), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions:
+*
+* The above copyright notice and this permission notice shall be included in
+* all copies or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+* THE SOFTWARE.
+*/
+
+
 package com.kodehawa;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.DataInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.InputStreamReader;
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Properties;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.src.EntityClientPlayerMP;
 import net.minecraft.src.Gui;
 
 import org.lwjgl.input.Keyboard;
 
 import com.kodehawa.core.CheckKey;
 import com.kodehawa.core.KeyManager;
+import com.kodehawa.core.TranslationWritter;
 import com.kodehawa.gui.CGuiIngame;
 import com.kodehawa.gui.api.components.Frame;
 import com.kodehawa.gui.api.components.TestGui;
@@ -37,6 +50,7 @@ import com.kodehawa.mods.NoFall;
 import com.kodehawa.mods.Sprint;
 import com.kodehawa.mods.Waterwalk;
 import com.kodehawa.mods.Xray;
+import com.kodehawa.newgui.GuiXraySelectedBlock;
 import com.kodehawa.players.FrenemyManager;
 import com.kodehawa.util.Console;
 import com.kodehawa.util.Tickable;
@@ -55,13 +69,12 @@ public class CheatBase {
 	long then;
 	
 	public String modName = "Cheat Pack 2";
-	public String classOriginal = "The Colony - Opensource project.";
+	
 	public String version = "Minecraft 1.5.2";
 	public String copyright = "(C) Kodehawa's Mods Team 2012-2013";
 	
 	
-	//Translations
-	public final Properties transTable = new Properties(); public final Properties cfgTable = new Properties();
+	
 	
 	public CheatBase( Minecraft mc ) {
 		instance = this;
@@ -82,6 +95,7 @@ public class CheatBase {
 		mmanager = new ModManager( this );
 		modgui = new TestGui( );
 		kmanager = new KeyManager( );
+		translations = new TranslationWritter( );
 		femanager = new FrenemyManager( );
 		console = new Console( );
 		
@@ -92,7 +106,7 @@ public class CheatBase {
 		}
 	}
 	
-	//Load mod settings.... (Dropped from Cheat Pack, credits to Binkan :3)
+	
 	
 
 	public void reload( ) {
@@ -155,11 +169,14 @@ public class CheatBase {
 			if ( ck.checkKey( Keyboard.KEY_GRAVE ) ) {
 				// TODO Console
 			minecraft.displayGuiScreen( new Console( ) );
+			if ( ck.checkKey( Keyboard.KEY_J ) ) {
+				minecraft.displayGuiScreen( new GuiXraySelectedBlock( ) );
 
 		for ( Map.Entry<Mod, Integer> e : keyShit.entrySet( ) ) {
 			if ( ck.checkKey( e.getKey( ).keyBind ) ) {
 				e.getKey( ).toggle( );
 			}
+		}
 		}
 		}
 		}
@@ -188,11 +205,7 @@ public class CheatBase {
 	      }
 	      return false;
 	    }
-	   
-	   public static String translate(String s)
-	   {
-	     return cb.transTable.getProperty(s, s);
-	   }
+
 	   
 	
 	public static KillAura killaura;
@@ -204,6 +217,7 @@ public class CheatBase {
 	public static Waterwalk ww;
 	public static AutoFish af;
 	public CheckKey ck;
+	public GuiXraySelectedBlock xraygui;
 	public Utils utils;
 	public static Minecraft minecraft;
 	public ArrayList<Tickable> tickables = new ArrayList<Tickable>( );
@@ -211,6 +225,7 @@ public class CheatBase {
 	public HashMap<Mod, Integer> keyShit;
 	public static ModManager mmanager;
 	public KeyManager kmanager;
+	public TranslationWritter translations;
 	public FrenemyManager femanager;
 	public TestGui modgui;
 	public static boolean hasZMod;

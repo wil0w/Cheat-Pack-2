@@ -1,3 +1,25 @@
+/*
+* Copyright (c) 2013 David Rubio
+*
+* Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files (the "Software"), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions:
+*
+* The above copyright notice and this permission notice shall be included in
+* all copies or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+* THE SOFTWARE.
+*/
+
 package com.kodehawa;
 
 import java.io.BufferedReader;
@@ -21,7 +43,7 @@ import org.lwjgl.input.Keyboard;
 
 public final class CheatPack
 {
-    public static final String copyright = "Cheat Pack 2 #4 by Kodehawa";
+    public static final String copyright = "Cheat Pack 2.3 #4 by Binkan Salaryman";
     public static final CheatPack coreBase;
     public static CBOriginal sspBase = new CBOriginal();
     public static CBOriginal smpBase = new CBOriginal();
@@ -39,9 +61,8 @@ public final class CheatPack
     public static boolean creative;
     public static boolean enableSingleplayer = true;
     public static boolean enableMultiplayer;
-    public Minecraft mc;
-    public static int prevKey = Keyboard.KEY_BACKSLASH;
-    public static int nextKey = Keyboard.KEY_CAPITAL;
+    public static int prevKey = Keyboard.KEY_DOWN;
+    public static int nextKey = Keyboard.KEY_NEXT;
     public static int escapeKey = Keyboard.KEY_ESCAPE;
     public static int setKey = 28;
     public static int unsetKey = 211;
@@ -49,6 +70,9 @@ public final class CheatPack
     public final Properties transTable = new Properties();
     public final Properties cfgTable = new Properties();
 
+    public CheatPack instance;
+    public Minecraft mc;
+    
     protected static void checkEnvironment()
     {
         hasModLoader = coreBase.classExists("ModLoader");
@@ -267,10 +291,6 @@ public final class CheatPack
        getBase(minecraft).setInvulnerable(minecraft.thePlayer, invulnerable);
        getBase(minecraft).setFlying(minecraft.thePlayer, flying);
 
-        /*if ((!creative || !(minecraft.thePlayer.playerController instanceof PlayerControllerCreative)) && (creative || !(minecraft.playerController instanceof PlayerControllerSP)))
-        {
-            getBase(minecraft).setGamemode(minecraft, creative ? 1 : 0);
-        }*/
     }
 
     public static boolean escapeGui(Minecraft minecraft, int i, GuiScreen guiscreen)
@@ -413,6 +433,8 @@ public final class CheatPack
 
         return minecraft;
     }
+      
+    
 
     public World getWorld()
     {
@@ -444,7 +466,7 @@ public final class CheatPack
     {
         coreBase = new CheatPack();
         System.out.println("<<< Cheat Pack 2 - Init System >>>");
-        System.out.println("Cheat Pack 2 GUI Init System");
+        System.out.println("<<< Cheat Pack 2 GUI Init System >>>");
         checkEnvironment();
         loadDimensions();
         loadSettings();
