@@ -48,7 +48,6 @@ public class CGuiIngame extends GuiIngame {
 		super.renderGameOverlay( par1, par2, par3, par4 );
 		
 		GL11.glPushMatrix( );
-		this.drawString( CheatBase.instance.minecraft.fontRenderer, CheatBase.instance.modName + " " + "-" + CheatBase.instance.version + " " + "- Game FPS: " + mc.debugFPS + " ", 2, 2, 0xffffff );
 		GL11.glPopMatrix( );
 		
 	}
