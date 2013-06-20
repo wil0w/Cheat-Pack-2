@@ -5,12 +5,12 @@ import net.minecraft.client.Minecraft;
 import com.kodehawa.CheatBase;
 import com.kodehawa.util.Tickable;
 
-public class Sprint extends Mod implements Tickable {
+public class ModuleSprint extends Mod implements Tickable {
 	
 	private final CheatBase cheatbase;
 	private final Minecraft mc;
 	
-	public Sprint( CheatBase cb, Minecraft m ) {
+	public ModuleSprint( CheatBase cb, Minecraft m ) {
 		super( Mods.SPRINT );
 		cheatbase = cb;
 		mc = m;

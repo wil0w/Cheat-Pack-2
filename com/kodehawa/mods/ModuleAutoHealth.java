@@ -6,9 +6,9 @@ import net.minecraft.src.PotionEffect;
 import com.kodehawa.CheatBase;
 import com.kodehawa.util.Tickable;
 
-public class AutoHealth extends Mod implements Tickable {
+public class ModuleAutoHealth extends Mod implements Tickable {
 
-	public AutoHealth( CheatBase c, Minecraft m ) {
+	public ModuleAutoHealth( CheatBase c, Minecraft m ) {
 		super( Mods.AUTOHEALTH );
 		cb = c;
 		minecraft = m;

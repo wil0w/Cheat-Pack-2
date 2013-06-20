@@ -34,7 +34,6 @@ import java.util.Properties;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.src.EntityClientPlayerMP;
-import net.minecraft.src.EntityPlayerMP;
 import net.minecraft.src.GuiScreen;
 import net.minecraft.src.UnexpectedThrowable;
 import net.minecraft.src.World;
@@ -486,4 +485,6 @@ public final class CheatPack
 
         loadConfig();
     }
+    
+ 
 }

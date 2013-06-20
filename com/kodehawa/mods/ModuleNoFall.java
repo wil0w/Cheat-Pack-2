@@ -8,11 +8,11 @@ import net.minecraft.src.Packet13PlayerLookMove;
 import com.kodehawa.CheatBase;
 import com.kodehawa.util.Tickable;
 
-public class NoFall extends Mod implements Tickable {
+public class ModuleNoFall extends Mod implements Tickable {
 	
 	private final CheatBase cheatbase;
 	
-	public NoFall( CheatBase cb, Minecraft m ) {
+	public ModuleNoFall( CheatBase cb, Minecraft m ) {
 		super( Mods.NOFALL );
 		cheatbase = cb;
 	}

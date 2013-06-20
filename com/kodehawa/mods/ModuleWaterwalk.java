@@ -6,12 +6,12 @@ import net.minecraft.src.EntityClientPlayerMP;
 import com.kodehawa.CheatBase;
 import com.kodehawa.util.Tickable;
 
-public class Waterwalk extends Mod implements Tickable {
+public class ModuleWaterwalk extends Mod implements Tickable {
 	
 	private final CheatBase cb;
 	private final Minecraft mc;
 	
-	public Waterwalk( CheatBase co, Minecraft m ) {
+	public ModuleWaterwalk( CheatBase co, Minecraft m ) {
 		super( Mods.WATERWALK );
 		cb = co;
 		mc = m;

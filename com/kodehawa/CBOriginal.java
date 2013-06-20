@@ -282,7 +282,7 @@ public class CBOriginal {
 
 	        if (!flag)
 	        {
-	            entityplayer.capabilities.isFlying = false;
+	        entityplayer.capabilities.isFlying = false;
 	        }
 	    }
 

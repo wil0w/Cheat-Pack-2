@@ -5,12 +5,12 @@ import net.minecraft.client.Minecraft;
 import com.kodehawa.CheatBase;
 import com.kodehawa.util.Tickable;
 
-public class FastPlace extends Mod implements Tickable {
+public class ModuleFastPlace extends Mod implements Tickable {
 	
 	CheatBase cb;
 	Minecraft mc;
 	
-	public FastPlace( CheatBase cb, Minecraft mc ) {
+	public ModuleFastPlace( CheatBase cb, Minecraft mc ) {
 		super( Mods.FASTPLACE );
 		// TODO Auto-generated constructor stub
 		this.cb = cb;

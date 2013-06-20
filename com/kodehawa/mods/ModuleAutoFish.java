@@ -15,11 +15,11 @@ import com.kodehawa.util.Tickable;
  * it in.
  * 
  */
-public class AutoFish extends Mod implements Tickable {
+public class ModuleAutoFish extends Mod implements Tickable {
 	
 	private final CheatBase cb;
 	
-	public AutoFish( CheatBase c, Minecraft mc ) {
+	public ModuleAutoFish( CheatBase c, Minecraft mc ) {
 		super( Mods.AUTOFISH );
 		
 		this.cb = c;

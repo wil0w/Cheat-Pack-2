@@ -5,9 +5,9 @@ import net.minecraft.client.Minecraft;
 import com.kodehawa.CheatBase;
 import com.kodehawa.util.Tickable;
 
-public class FasterWalk extends Mod implements Tickable {
+public class ModuleFasterWalk extends Mod implements Tickable {
 
-	public FasterWalk( CheatBase c, Minecraft m ) {
+	public ModuleFasterWalk( CheatBase c, Minecraft m ) {
 		super( Mods.FASTERWALK );
 		cb = c;
 		mc = m;

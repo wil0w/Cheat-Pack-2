@@ -40,16 +40,16 @@ import com.kodehawa.gui.api.components.Frame;
 import com.kodehawa.gui.api.components.TestGui;
 import com.kodehawa.gui.api.font.CustomFont;
 import com.kodehawa.gui.api.testing.AlertHandler;
-import com.kodehawa.mods.AutoFish;
-import com.kodehawa.mods.Fly;
-import com.kodehawa.mods.Fullbright;
-import com.kodehawa.mods.KillAura;
 import com.kodehawa.mods.Mod;
 import com.kodehawa.mods.ModManager;
-import com.kodehawa.mods.NoFall;
-import com.kodehawa.mods.Sprint;
-import com.kodehawa.mods.Waterwalk;
-import com.kodehawa.mods.Xray;
+import com.kodehawa.mods.ModuleAutoFish;
+import com.kodehawa.mods.ModuleFly;
+import com.kodehawa.mods.ModuleFullbright;
+import com.kodehawa.mods.ModuleKillAura;
+import com.kodehawa.mods.ModuleNoFall;
+import com.kodehawa.mods.ModuleSprint;
+import com.kodehawa.mods.ModuleWaterwalk;
+import com.kodehawa.mods.ModuleXray;
 import com.kodehawa.newgui.GuiXraySelectedBlock;
 import com.kodehawa.players.FrenemyManager;
 import com.kodehawa.util.Console;
@@ -205,17 +205,18 @@ public class CheatBase {
 	      }
 	      return false;
 	    }
+	 
 
 	   
 	
-	public static KillAura killaura;
-	public static Fullbright fullbright;
-	public static Fly fly;
-	public static NoFall nof;
-	public static Sprint spr;
-	public static Xray xray;
-	public static Waterwalk ww;
-	public static AutoFish af;
+	public static ModuleKillAura killaura;
+	public static ModuleFullbright fullbright;
+	public static ModuleFly fly;
+	public static ModuleNoFall nof;
+	public static ModuleSprint spr;
+	public static ModuleXray xray;
+	public static ModuleWaterwalk ww;
+	public static ModuleAutoFish af;
 	public CheckKey ck;
 	public GuiXraySelectedBlock xraygui;
 	public Utils utils;
@@ -235,6 +236,7 @@ public class CheatBase {
 	public Console console;
 	public static CheatBase cb;
     public static boolean pausegame;
+
 	public static boolean disablefov;
 	public static boolean instantdrop;
 	public static boolean instantxp;

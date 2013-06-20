@@ -38,23 +38,23 @@ public class ModManager {
 		playerMods = new ArrayList<Mod>( );
 		
 		// World mods
-		addWMod( new AutoFish( c, c.minecraft ) );
-		addWMod( new FastPlace( c, c.minecraft ) );
-		addWMod( new Fullbright( c, c.minecraft ) );
-		addWMod( new Waterwalk( c, c.minecraft ) );
-		addWMod( new Xray( c, c.minecraft ) );
+		addWMod( new ModuleAutoFish( c, c.minecraft ) );
+		addWMod( new ModuleFastPlace( c, c.minecraft ) );
+		addWMod( new ModuleFullbright( c, c.minecraft ) );
+		addWMod( new ModuleWaterwalk( c, c.minecraft ) );
+		addWMod( new ModuleXray( c, c.minecraft ) );
 		
 		
 		
 		// Player mods
-		addPMod( new Fly( c, c.minecraft ) );
-		addPMod( new KillAura( c, c.minecraft ) );
-		addPMod( new Invulnerable(c, c.minecraft));
-		addPMod( new NoFall( c, c.minecraft ) );
-		addPMod( new Sprint( c, c.minecraft ) );
-		addPMod( new Tracer( c, c.minecraft ) );
-		addPMod( new FasterWalk(c, c.minecraft ) );
-		addPMod( new AutoHealth( c, c.minecraft ) );
+		addPMod( new ModuleFly( c, c.minecraft ) );
+		addPMod( new ModuleKillAura( c, c.minecraft ) );
+		addPMod( new ModuleInvulnerable(c, c.minecraft));
+		addPMod( new ModuleNoFall( c, c.minecraft ) );
+		addPMod( new ModuleSprint( c, c.minecraft ) );
+		addPMod( new ModuleTracer( c, c.minecraft ) );
+		addPMod( new ModuleFasterWalk(c, c.minecraft ) );
+		addPMod( new ModuleAutoHealth( c, c.minecraft ) );
 		
 		
 		

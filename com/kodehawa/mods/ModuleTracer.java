@@ -9,12 +9,12 @@ import org.lwjgl.opengl.GL13;
 import com.kodehawa.CheatBase;
 import com.kodehawa.util.Tickable;
 
-public class Tracer extends Mod implements Tickable {
+public class ModuleTracer extends Mod implements Tickable {
 	
 	private final CheatBase cb;
 	private static Minecraft mc;
 	
-	public Tracer( CheatBase co, Minecraft mcx ) {
+	public ModuleTracer( CheatBase co, Minecraft mcx ) {
 		super( Mods.TRACER );
 		cb = co;
 		mc = mcx;

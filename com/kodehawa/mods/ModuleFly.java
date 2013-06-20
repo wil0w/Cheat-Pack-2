@@ -23,66 +23,57 @@
 package com.kodehawa.mods;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.src.Entity;
-import net.minecraft.src.EntityLiving;
+import net.minecraft.src.Packet11PlayerPosition;
+import net.minecraft.src.Packet12PlayerLook;
+import net.minecraft.src.Packet13PlayerLookMove;
 
 import com.kodehawa.CheatBase;
-import com.kodehawa.util.EntityUtils;
 import com.kodehawa.util.Tickable;
-import com.kodehawa.util.Watcher;
 
-public class KillAura extends Mod implements Tickable {
+public class ModuleFly extends Mod implements Tickable {
 	
 	private final CheatBase cheatbase;
+	private final Minecraft mc;
+
 	
-	public KillAura( CheatBase rc, Minecraft mc ) {
-		super( Mods.KILLAURA );
-		cheatbase = rc;
-		minecraft = mc;
+	public ModuleFly( CheatBase c, Minecraft m ) {
+		super( Mods.FLY );
+		cheatbase = c;
+		mc = m;
+		// TODO Auto-generated constructor stub
+	}
+	
+	@Override
+	public void tick( ) {
+		// TODO Auto-generated method stub
+		mc.thePlayer.capabilities.isFlying = true;
+		mc.thePlayer.isAirBorne = true;
+		mc.thePlayer.isJumping = true;
+		mc.thePlayer.setAir( 100 );
+		mc.thePlayer.setAir( 10 );
+		
+		Packet11PlayerPosition.onGround = true;
+		Packet12PlayerLook.onGround = true;
+		Packet13PlayerLookMove.onGround = true;
+		//cp.getBase(mc).setFlying(mc.thePlayer, flying);
 	}
 	
 	@Override
 	public void onEnable( ) {
 		cheatbase.addToTick( this );
+		mc.thePlayer.capabilities.isFlying = true;
+		mc.thePlayer.capabilities.flySpeed = 0.1F;
 		cheatbase.getUtils( ).addChatMessage( getActive( ) );
 	}
 	
 	@Override
 	public void onDisable( ) {
 		cheatbase.removeFromTick( this );
+		mc.thePlayer.capabilities.isFlying = false;
+		Packet11PlayerPosition.onGround = false;
+		Packet12PlayerLook.onGround = false;
+		Packet13PlayerLookMove.onGround = false;
 		cheatbase.getUtils( ).addChatMessage( getActive( ) );
 	}
-	
-	@Override
-	public void tick( ) {
-		
-		for ( int i = 0; i < minecraft.theWorld.loadedEntityList.size( ); i++ ) {
-			Entity ent = (Entity) minecraft.theWorld.loadedEntityList.get( i );
-			
-			int id = ent.entityId;
-			long now = System.currentTimeMillis( );
-			Watcher tracked = EntityUtils.getLastAffected( id );
-			if ( tracked != null ) {
-				if ( tracked.matches( ent, now ) ) {
-					continue;
-				}
-			}
-			
-			EntityUtils.setLastAffected( id, ent );
-			
-			if ( ( ent == minecraft.thePlayer ) || !( ent instanceof EntityLiving ) || ent.isDead ) {
-				continue;
-			}
-			
-			if ( ( minecraft.thePlayer.getDistanceSqToEntity( ent ) <= 36D ) && !ent.isDead && minecraft.thePlayer.canEntityBeSeen( ent ) ) {
-				minecraft.thePlayer.faceEntity( ent, 100F, 100F );
-				minecraft.playerController.attackEntity( minecraft.thePlayer, ent );
-				minecraft.thePlayer.swingItem( );
-			}
-		}
-	}
-	
-	
-	private final Minecraft minecraft;
 	
 }
