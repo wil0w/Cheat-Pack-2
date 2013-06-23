@@ -34,7 +34,7 @@ import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 
 import com.kodehawa.mods.Vars;
-import com.kodehawa.mods.Xray;
+import com.kodehawa.mods.ModuleXray;
 
 //Julialy's GUI System.
 
@@ -215,7 +215,7 @@ public class GuiXraySelectedBlock extends GuiScreen {
 
         super.drawScreen(var1, var2, var3);
     }
-    public Xray xray;
+    public ModuleXray xray;
 }
 
 

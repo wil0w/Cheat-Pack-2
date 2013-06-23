@@ -23,6 +23,8 @@
 package com.kodehawa.mods;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.src.NetClientHandler;
+import net.minecraft.src.Packet10Flying;
 import net.minecraft.src.Packet11PlayerPosition;
 import net.minecraft.src.Packet12PlayerLook;
 import net.minecraft.src.Packet13PlayerLookMove;
@@ -34,6 +36,8 @@ public class ModuleFly extends Mod implements Tickable {
 	
 	private final CheatBase cheatbase;
 	private final Minecraft mc;
+	public NetClientHandler sendQueue;
+	public boolean onGround = true;
 
 	
 	public ModuleFly( CheatBase c, Minecraft m ) {
@@ -51,11 +55,12 @@ public class ModuleFly extends Mod implements Tickable {
 		mc.thePlayer.isJumping = true;
 		mc.thePlayer.setAir( 100 );
 		mc.thePlayer.setAir( 10 );
-		
+	
 		Packet11PlayerPosition.onGround = true;
+	    Packet10Flying.onGround = true;
 		Packet12PlayerLook.onGround = true;
 		Packet13PlayerLookMove.onGround = true;
-		//cp.getBase(mc).setFlying(mc.thePlayer, flying);
+		
 	}
 	
 	@Override
@@ -64,6 +69,7 @@ public class ModuleFly extends Mod implements Tickable {
 		mc.thePlayer.capabilities.isFlying = true;
 		mc.thePlayer.capabilities.flySpeed = 0.1F;
 		cheatbase.getUtils( ).addChatMessage( getActive( ) );
+		cheatbase.getUtils( ).addChatMessage( "Take care with the bug!" );
 	}
 	
 	@Override

@@ -68,6 +68,7 @@ public final class CheatPack
     public final File settings = new File(Minecraft.getMinecraftDir(), "/CheatPackSettings.dat");
     public final Properties transTable = new Properties();
     public final Properties cfgTable = new Properties();
+    private boolean integratedServerIsRunning;
 
     public CheatPack instance;
     public Minecraft mc;
@@ -291,6 +292,33 @@ public final class CheatPack
        getBase(minecraft).setFlying(minecraft.thePlayer, flying);
 
     }
+    
+    public boolean showModGui(Minecraft minecraft, int i, GuiScreen guiscreen)
+    {
+       if (i == minecraft.gameSettings.keyBindInventory.keyCode)
+       {
+    	   
+       minecraft.displayGuiScreen(guiscreen);
+       return true;
+       
+       }
+    
+    if (i == escapeKey)
+       {
+    	
+        minecraft.displayGuiScreen(null);
+        return true;
+        
+       }
+    else
+       {
+    	
+        return false;
+        
+       }
+    }
+
+    
 
     public static boolean escapeGui(Minecraft minecraft, int i, GuiScreen guiscreen)
     {
@@ -434,17 +462,6 @@ public final class CheatPack
     }
       
     
-
-    public World getWorld()
-    {
-        return getMinecraft().theWorld;
-    }
-
-    public EntityClientPlayerMP getPlayer()
-    {
-        return getMinecraft().thePlayer;
-    }
-
     public void throwException(String s, Throwable throwable)
     {
         System.out.println((new StringBuilder()).append("Cheat Pack 2 - ").append(s).append(" -//- ").append(throwable.toString()).toString());
@@ -460,7 +477,20 @@ public final class CheatPack
             return;
         }
     }
+    
 
+    public World getWorld()
+    {
+        return getMinecraft().theWorld;
+    }
+
+    public EntityClientPlayerMP getPlayer()
+    {
+        return getMinecraft().thePlayer;
+    }
+
+    
+ 
     static
     {
         coreBase = new CheatPack();

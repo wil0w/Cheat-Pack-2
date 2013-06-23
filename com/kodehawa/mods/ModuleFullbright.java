@@ -26,6 +26,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.src.PotionEffect;
 
 import com.kodehawa.CheatBase;
+import com.kodehawa.util.ChatColour;
 import com.kodehawa.util.Tickable;
 
 public class ModuleFullbright extends Mod implements Tickable {
@@ -34,20 +35,21 @@ public class ModuleFullbright extends Mod implements Tickable {
 		super( Mods.FULLBRIGHT );
 		cb = rc;
 		minecraft = mc;
-		//oldGamma = minecraft.gameSettings.gammaSetting;
+		oldGamma = minecraft.gameSettings.gammaSetting;
 	}
 	
 	@Override
 	public void onEnable( ) {
 		cb.getUtils( ).addChatMessage( getActive( ) );
 		cb.addToTick( this );
+		cb.getUtils( ).addChatMessage( ChatColour.DARK_GRAY + "Now you can see any block in the darkness!");
 	}
 	
 	@Override
 	public void onDisable( ) {
 		cb.getUtils( ).addChatMessage( getActive( ) );
-		//minecraft.thePlayer.removePotionEffect( 16 );
-		minecraft.gameSettings.gammaSetting = 0.2F;
+		//Fixed!
+		minecraft.gameSettings.gammaSetting = oldGamma;
 		cb.removeFromTick( this );
 	}
 	

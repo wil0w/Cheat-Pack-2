@@ -5,7 +5,8 @@ import org.lwjgl.opengl.GL11;
 public class Gui
 {
     protected static float zLevel = 0.0F;
-    protected static float zLevel2 = 0.0F;
+    public static float zLevel2 = 0.0F;
+    
 
     protected static void drawHorizontalLine(int par1, int par2, int par3, int par4)
     {
@@ -74,36 +75,36 @@ public class Gui
     /**
      * Draws a rectangle with a vertical gradient between the specified colors.
      */
-	protected static void drawGradientRect( int par1, int par2, int par3, int par4, int par5, int par6 )
-	{
-		float var7 = ( ( par5 >> 24 ) & 255 ) / 255.0F;
-		float var8 = ( ( par5 >> 16 ) & 255 ) / 255.0F;
-		float var9 = ( ( par5 >> 8 ) & 255 ) / 255.0F;
-		float var10 = ( par5 & 255 ) / 255.0F;
-		float var11 = ( ( par6 >> 24 ) & 255 ) / 255.0F;
-		float var12 = ( ( par6 >> 16 ) & 255 ) / 255.0F;
-		float var13 = ( ( par6 >> 8 ) & 255 ) / 255.0F;
-		float var14 = ( par6 & 255 ) / 255.0F;
-		GL11.glDisable( GL11.GL_TEXTURE_2D );
-		GL11.glEnable( GL11.GL_BLEND );
-		GL11.glDisable( GL11.GL_ALPHA_TEST );
-		GL11.glBlendFunc( GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA );
-		GL11.glShadeModel( GL11.GL_SMOOTH );
-		Tessellator var15 = Tessellator.instance;
-		var15.startDrawingQuads( );
+    protected static void drawGradientRect(int par1, int par2, int par3, int par4, int par5, int par6)
+    {
+        float var7 = (float)(par5 >> 24 & 255) / 255.0F;
+        float var8 = (float)(par5 >> 16 & 255) / 255.0F;
+        float var9 = (float)(par5 >> 8 & 255) / 255.0F;
+        float var10 = (float)(par5 & 255) / 255.0F;
+        float var11 = (float)(par6 >> 24 & 255) / 255.0F;
+        float var12 = (float)(par6 >> 16 & 255) / 255.0F;
+        float var13 = (float)(par6 >> 8 & 255) / 255.0F;
+        float var14 = (float)(par6 & 255) / 255.0F;
+        GL11.glDisable(GL11.GL_TEXTURE_2D);
+        GL11.glEnable(GL11.GL_BLEND);
+        GL11.glDisable(GL11.GL_ALPHA_TEST);
+        GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
+        GL11.glShadeModel(GL11.GL_SMOOTH);
+        Tessellator var15 = Tessellator.instance;
+        var15.startDrawingQuads( );
 		var15.setColorRGBA_F( var8, var9, var10, var7 );
 		var15.addVertex( par3, par2, zLevel );
 		var15.addVertex( par1, par2, zLevel );
 		var15.setColorRGBA_F( var12, var13, var14, var11 );
 		var15.addVertex( par1, par4, zLevel );
 		var15.addVertex( par3, par4, zLevel );
-		var15.draw( );
-		GL11.glShadeModel( GL11.GL_FLAT );
-		GL11.glDisable( GL11.GL_BLEND );
-		GL11.glEnable( GL11.GL_ALPHA_TEST );
-		GL11.glEnable( GL11.GL_TEXTURE_2D );
-	}
-	
+        var15.draw();
+        GL11.glShadeModel(GL11.GL_FLAT);
+        GL11.glDisable(GL11.GL_BLEND);
+        GL11.glEnable(GL11.GL_ALPHA_TEST);
+        GL11.glEnable(GL11.GL_TEXTURE_2D);
+    }
+
     /**
      * Renders the specified text to the screen, center-aligned.
      */

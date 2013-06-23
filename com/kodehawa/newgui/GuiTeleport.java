@@ -131,7 +131,7 @@ public class GuiTeleport extends GuiScreen
         }
         else
         {
-            CheatPack.getBase(mc).warp(mc.thePlayer, CheatPack.dimensions[dimension.index].intValue());
+            //CheatPack.getBase(mc).warp(mc.thePlayer, CheatPack.dimensions[dimension.index].intValue());
         }
     }
 

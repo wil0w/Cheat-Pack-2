@@ -296,10 +296,7 @@ public class CBOriginal {
 	        entity.setPosition(d, d1, d2);
 	    }
 
-	    public void warp(EntityPlayer entityplayer, int i)
-	    {
-	       CheatPack.coreBase.getMinecraft().usePortal(i);
-	    }
+	   
 
 	    public void setGamemode(Minecraft minecraft, int i)
 	    {

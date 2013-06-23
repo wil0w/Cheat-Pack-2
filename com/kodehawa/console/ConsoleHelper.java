@@ -32,15 +32,12 @@ public class ConsoleHelper {
 	public ConsoleHelper( ) {
 		commands = new ArrayList<BaseCommand>( );
 		addCommand( new Help( ) );
-		addCommand( new Spam( ) );
-		addCommand( new Flood( ) );
 		addCommand( new Enchant( ) );
 		addCommand( new Speed( ) );
 		addCommand( new Bind( ) );
 		addCommand( new List( ) );
 		addCommand( new AddFriend( ) );
 		addCommand( new AddEnemy( ) );
-		addCommand( new TimerPlus( ) );
 		addCommand( new Reloader( ) );
 		addCommand( new Spy( ) );
 		addCommand( new SpyList( ) );

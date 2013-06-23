@@ -3,6 +3,7 @@ package com.kodehawa.mods;
 import net.minecraft.client.Minecraft;
 
 import com.kodehawa.CheatBase;
+import com.kodehawa.util.ChatColour;
 import com.kodehawa.util.Tickable;
 
 public class ModuleFasterWalk extends Mod implements Tickable {
@@ -24,6 +25,7 @@ public class ModuleFasterWalk extends Mod implements Tickable {
 	public void onEnable() {
 		cb.addToTick( this );
 		cb.getUtils( ).addChatMessage( getActive( ) );
+		cb.getUtils().addChatMessage(ChatColour.DARK_GRAY + "You now can walk faster");
 	}
 
 	@Override

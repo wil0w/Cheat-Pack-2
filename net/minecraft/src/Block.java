@@ -457,6 +457,7 @@ public class Block
         return par1IBlockAccess.getLightBrightnessForSkyBlocks(par2, par3, par4, lightValue[par1IBlockAccess.getBlockId(par2, par3, par4)]);
     }
 
+    
     /**
      * Returns true if the given side of this block type should be rendered, if the adjacent block is at the given
      * coordinates.  Args: blockAccess, x, y, z, side
@@ -469,8 +470,6 @@ public class Block
 			return Arrays.asList( Vars.xrayBlocks ).contains( blockID );
 		}
 	}
-	
-
     /**
      * Returns Returns true if the given side of this block type should be rendered (if it's solid or not), if the
      * adjacent block is at the given coordinates. Args: blockAccess, x, y, z, side

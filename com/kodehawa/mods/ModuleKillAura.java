@@ -27,6 +27,7 @@ import net.minecraft.src.Entity;
 import net.minecraft.src.EntityLiving;
 
 import com.kodehawa.CheatBase;
+import com.kodehawa.util.ChatColour;
 import com.kodehawa.util.EntityUtils;
 import com.kodehawa.util.Tickable;
 import com.kodehawa.util.Watcher;
@@ -45,7 +46,9 @@ public class ModuleKillAura extends Mod implements Tickable {
 	public void onEnable( ) {
 		cheatbase.addToTick( this );
 		cheatbase.getUtils( ).addChatMessage( getActive( ) );
+	    cheatbase.getUtils().addChatMessage(ChatColour.DARK_GRAY + "Kill all... Kill :)");
 	}
+
 	
 	@Override
 	public void onDisable( ) {

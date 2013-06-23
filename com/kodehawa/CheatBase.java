@@ -23,12 +23,14 @@
 
 package com.kodehawa;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.src.Gui;
+import net.minecraft.src.IntegratedServer;
 
 import org.lwjgl.input.Keyboard;
 
@@ -50,6 +52,7 @@ import com.kodehawa.mods.ModuleNoFall;
 import com.kodehawa.mods.ModuleSprint;
 import com.kodehawa.mods.ModuleWaterwalk;
 import com.kodehawa.mods.ModuleXray;
+import com.kodehawa.newgui.GuiItemSelection;
 import com.kodehawa.newgui.GuiXraySelectedBlock;
 import com.kodehawa.players.FrenemyManager;
 import com.kodehawa.util.Console;
@@ -166,11 +169,16 @@ public class CheatBase {
 		
 		if ( ck.checkKey( Keyboard.KEY_G ) ) {
 			minecraft.displayGuiScreen( modgui );
+			
+			if ( ck.checkKey( Keyboard.KEY_P ) ) {
+				minecraft.displayGuiScreen( guicheat );
+			
 			if ( ck.checkKey( Keyboard.KEY_GRAVE ) ) {
 				// TODO Console
 			minecraft.displayGuiScreen( new Console( ) );
 			if ( ck.checkKey( Keyboard.KEY_J ) ) {
 				minecraft.displayGuiScreen( new GuiXraySelectedBlock( ) );
+				
 
 		for ( Map.Entry<Mod, Integer> e : keyShit.entrySet( ) ) {
 			if ( ck.checkKey( e.getKey( ).keyBind ) ) {
@@ -181,6 +189,9 @@ public class CheatBase {
 		}
 		}
 		}
+		}
+	
+	
 		
 	
 	
@@ -234,9 +245,11 @@ public class CheatBase {
 	public AlertHandler amanager;
 	public WaypointManager wmanager;
 	public Console console;
+	public CheatBase cheatbase;
 	public static CheatBase cb;
+	public GuiItemSelection guicheat;
     public static boolean pausegame;
-
+    public IntegratedServer is;
 	public static boolean disablefov;
 	public static boolean instantdrop;
 	public static boolean instantxp;

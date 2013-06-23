@@ -25,6 +25,7 @@ package com.kodehawa.mods;
 import net.minecraft.client.Minecraft;
 
 import com.kodehawa.CheatBase;
+import com.kodehawa.util.ChatColour;
 import com.kodehawa.util.Tickable;
 
 public class ModuleXray extends Mod implements Tickable {
@@ -51,6 +52,8 @@ public class ModuleXray extends Mod implements Tickable {
 		Vars.xray = true;
 		mc.renderGlobal.loadRenderers( );
 		cheatbase.getUtils( ).addChatMessage( getActive( ) );
+		cheatbase.getUtils( ).addChatMessage("Good luck finding Diamonds!");
+		cheatbase.getUtils( ).addChatMessage( ChatColour.DARK_GRAY + "For a better experience disable Smooth Lighting.");
 	}
 	
 	@Override

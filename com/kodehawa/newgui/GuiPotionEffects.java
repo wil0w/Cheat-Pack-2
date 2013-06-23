@@ -89,7 +89,7 @@ public class GuiPotionEffects extends GuiScreen
     public void drawScreen(int i, int j, float f)
     {
         drawDefaultBackground();
-        this.mc.renderEngine.getTexture("/CP2/resources/guipotioneffects.png");
+        this.mc.renderEngine.bindTexture("/CP2/resources/guipotioneffects.png");
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         
         int l = (width - 218) / 2;

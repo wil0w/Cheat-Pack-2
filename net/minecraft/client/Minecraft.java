@@ -15,11 +15,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-
 import javax.swing.JPanel;
-
 import net.minecraft.src.*;
-
 import org.lwjgl.LWJGLException;
 import org.lwjgl.Sys;
 import org.lwjgl.input.Keyboard;
@@ -27,14 +24,11 @@ import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.ContextCapabilities;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
-import org.lwjgl.opengl.EXTFramebufferObject;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL20;
 import org.lwjgl.opengl.GLContext;
 import org.lwjgl.opengl.PixelFormat;
 import org.lwjgl.util.glu.GLU;
-
-import com.kodehawa.mods.Vars;
 
 public abstract class Minecraft implements Runnable, IPlayerUsage
 {
@@ -55,7 +49,7 @@ public abstract class Minecraft implements Runnable, IPlayerUsage
     private CrashReport crashReporter;
     public int displayWidth;
     public int displayHeight;
-    public Timer timer = new Timer(20.0F);
+    private Timer timer = new Timer(20.0F);
 
     /** Instance of PlayerUsageSnooper. */
     private PlayerUsageSnooper usageSnooper = new PlayerUsageSnooper("client", this);
@@ -222,6 +216,12 @@ public abstract class Minecraft implements Runnable, IPlayerUsage
         this.hasCrashed = true;
         this.crashReporter = par1CrashReport;
     }
+    
+    /**
+     * Displays an unexpected error that has come up during the game.
+     */
+    public abstract void displayUnexpectedThrowable(UnexpectedThrowable unexpectedthrowable);
+
 
     /**
      * Wrapper around displayCrashReportInternal
@@ -415,11 +415,6 @@ public abstract class Minecraft implements Runnable, IPlayerUsage
         GL11.glAlphaFunc(GL11.GL_GREATER, 0.1F);
         Display.swapBuffers();
     }
-    
-    /**
-     * Displays an unexpected error that has come up during the game.
-     */
-    public abstract void displayUnexpectedThrowable(UnexpectedThrowable unexpectedthrowable);
 
     /**
      * Loads Tessellator with a scaled resolution
@@ -860,46 +855,6 @@ public abstract class Minecraft implements Runnable, IPlayerUsage
             if (this.func_90020_K() > 0)
             {
                 Display.sync(EntityRenderer.performanceToFps(this.func_90020_K()));
-                
-// TODO Kodehawa's Inyected Code 1
-                
-    			try {
-    				if ( Vars.rearv) {
-    					gameSettings.advancedOpengl = false;
-    					double tickX = thePlayer.lastTickPosX;
-    					double tickY = thePlayer.lastTickPosY;
-    					double tickZ = thePlayer.lastTickPosZ;
-    					float pitch = thePlayer.rotationPitch;
-    					float yaw = thePlayer.rotationYaw;
-    					float prevPitch = thePlayer.prevRotationPitch;
-    					float prevYaw = thePlayer.prevRotationYaw;
-    					thePlayer.rotationPitch = -pitch;
-    					thePlayer.rotationYaw += 180F;
-    					thePlayer.prevRotationPitch = thePlayer.rotationPitch;
-    					thePlayer.prevRotationYaw = thePlayer.rotationYaw;
-    					thePlayer.lastTickPosX = thePlayer.posX;
-    					thePlayer.lastTickPosY = thePlayer.posY;
-    					thePlayer.lastTickPosZ = thePlayer.posZ;
-    					
-    					GL11.glViewport( 0, 0, 512, 512 );
-    					GL11.glLoadIdentity( );
-    					// Vars.rearv = true;
-    					entityRenderer.updateCameraAndRender( timer.renderPartialTicks ); 
-    					// Vars.rearv = false;
-    					EXTFramebufferObject.glBindFramebufferEXT( '\u8d40', 0 );
-    					thePlayer.lastTickPosX = tickX;
-    					thePlayer.lastTickPosY = tickY;
-    					thePlayer.lastTickPosZ = tickZ;
-    					thePlayer.prevRotationPitch = prevPitch;
-    					thePlayer.prevRotationYaw = prevYaw;
-    					thePlayer.rotationPitch = pitch;
-    					thePlayer.rotationYaw = yaw;
-    					GL11.glViewport( 0, 0, displayWidth, displayHeight );
-    				}
-    				
-    			} catch ( Exception e ) {
-    				;
-    			}
             }
         }
     }
@@ -1790,6 +1745,8 @@ public abstract class Minecraft implements Runnable, IPlayerUsage
 
                 this.theWorld.updateEntities();
             }
+            
+            
 
             if (!this.isGamePaused)
             {
@@ -2565,13 +2522,4 @@ public abstract class Minecraft implements Runnable, IPlayerUsage
     {
         return this.field_94139_O;
     }
-
-	public void usePortal(int i) {
-		// TODO Auto-generated method stub
-		System.out.println("This method really can't be used but I put this for not touch the original CP GUI :3");
-		
-	}
-
-   
-	}
-
+}
