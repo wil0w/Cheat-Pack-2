@@ -23,14 +23,14 @@
 
 package com.kodehawa;
 
-import java.io.IOException;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.src.Gui;
-import net.minecraft.src.IntegratedServer;
+import net.minecraft.src.ILogAgent;
 
 import org.lwjgl.input.Keyboard;
 
@@ -44,14 +44,6 @@ import com.kodehawa.gui.api.font.CustomFont;
 import com.kodehawa.gui.api.testing.AlertHandler;
 import com.kodehawa.mods.Mod;
 import com.kodehawa.mods.ModManager;
-import com.kodehawa.mods.ModuleAutoFish;
-import com.kodehawa.mods.ModuleFly;
-import com.kodehawa.mods.ModuleFullbright;
-import com.kodehawa.mods.ModuleKillAura;
-import com.kodehawa.mods.ModuleNoFall;
-import com.kodehawa.mods.ModuleSprint;
-import com.kodehawa.mods.ModuleWaterwalk;
-import com.kodehawa.mods.ModuleXray;
 import com.kodehawa.newgui.GuiItemSelection;
 import com.kodehawa.newgui.GuiXraySelectedBlock;
 import com.kodehawa.players.FrenemyManager;
@@ -72,11 +64,8 @@ public class CheatBase {
 	long then;
 	
 	public String modName = "Cheat Pack 2";
-	
-	public String version = "Minecraft 1.5.2";
-	public String copyright = "(C) Kodehawa's Mods Team 2012-2013";
-	
-	
+	public String mcversion = "Minecraft 1.5.2";
+	public String modversion = "Cheat Pack 2.5";
 	
 	
 	public CheatBase( Minecraft mc ) {
@@ -101,15 +90,28 @@ public class CheatBase {
 		translations = new TranslationWritter( );
 		femanager = new FrenemyManager( );
 		console = new Console( );
-		
-		
+		LogAgent.logInfo("Initialization Complete");
+		LogAgent.logInfo("SSP/SMP mode enabled.");
 		guiFont = new CustomFont( minecraft, "Bauhaus", 20 );
 		for ( Mod m : mmanager.mods ) {
 			keyShit.put( m, m.keyBind );
 		}
+		LogAgent.logInfo(" + Modloader compatibility enabled");
+		LogAgent.logInfo(modversion + " - " + "Build 6 - 24.06.2013");
+        
 	}
 	
 	
+
+	protected static void checkEnvironment()
+    {
+        hasModLoader = cb.classExists("ModLoader");
+
+        if (hasModLoader)
+        {
+        	LogAgent.logInfo("CP2: ModLoader compatibility activated");
+        }
+    }
 	
 
 	public void reload( ) {
@@ -218,17 +220,8 @@ public class CheatBase {
 	    }
 	 
 
-	   
-	
-	public static ModuleKillAura killaura;
-	public static ModuleFullbright fullbright;
-	public static ModuleFly fly;
-	public static ModuleNoFall nof;
-	public static ModuleSprint spr;
-	public static ModuleXray xray;
-	public static ModuleWaterwalk ww;
-	public static ModuleAutoFish af;
-	public CheckKey ck;
+	public final static ILogAgent LogAgent = new net.minecraft.src.LogAgent("Cheat Pack 2", " [Cheat Pack 2] [CB]", (new File(Minecraft.getMinecraftDir(), "output-cient.log")).getAbsolutePath());
+	public CheckKey ck; 
 	public GuiXraySelectedBlock xraygui;
 	public Utils utils;
 	public static Minecraft minecraft;
@@ -240,7 +233,6 @@ public class CheatBase {
 	public TranslationWritter translations;
 	public FrenemyManager femanager;
 	public TestGui modgui;
-	public static boolean hasZMod;
 	public static boolean hasModLoader;
 	public AlertHandler amanager;
 	public WaypointManager wmanager;
@@ -248,22 +240,7 @@ public class CheatBase {
 	public CheatBase cheatbase;
 	public static CheatBase cb;
 	public GuiItemSelection guicheat;
-    public static boolean pausegame;
-    public IntegratedServer is;
-	public static boolean disablefov;
-	public static boolean instantdrop;
-	public static boolean instantxp;
-	public static boolean flying;
-	public static boolean invulnerable;
-	public static boolean showgui;
-	public static boolean killersight;
-	public static boolean creative;
-	public static int prevKey = 203;
-	public static int nextKey = 205;
-	public static int escapeKey = 1;
-	public static int setKey = 28;
-	public static int unsetKey = 211;
-
+    
 	
 	
 }
