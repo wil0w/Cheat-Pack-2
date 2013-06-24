@@ -37,8 +37,11 @@ import com.kodehawa.CheatPack;
 
 public class TranslationWritter {
 	
+	//Only for en_EN locale. For other please check the post.
+	
     public File translationFile;
     public CheatPack init;
+    public CheatBase cb;
 
 	public TranslationWritter( ) {
 	
@@ -52,53 +55,62 @@ public class TranslationWritter {
 			FileWriter fstream = new FileWriter( translationFile );
 			BufferedWriter out = new BufferedWriter( fstream );
 			
-			System.out.println("[Cheat Pack 2] [INFO] Writting translation file....");
+			cb.LogAgent.logInfo("Writting Translation File...");
 	        	
-			out.write( "GuiInventory.LabelCrafting=Crafting" );
-		    out.write( "GuiItemSelection.LabelItemSelection=Item selection" );
-			out.write( "GuiHealthFood.LabelTitle=Health and food" );
-			out.write( "GuiHealthFood.LabelFoodLevel=Food Level" );
-			out.write( "GuiHealthFood.LabelSaturation=Saturation" );
-			out.write( "GuiHealthFood.LabelExhaustion=Exhaustion" );
-			out.write( "GuiHealthFood.ButtonSet=Set" );
-			out.write( "GuiEnchanting.LabelTitle=Enchanting" );
-			out.write( "GuiExperience.LabelTitle=Experience");
-			out.write( "GuiExperience.LabelLevel=Level");
-			out.write( "GuiExperience.LabelPercentage=Percentage" );
-		    out.write( "GuiExperience.LabelScore=Score" );
-			out.write( "GuiExperience.ButtonSet=Set" );
-			out.write( "GuiPotionEffects.LabelTitle=Potion Effects" );
-			out.write( "GuiPotionEffects.LabelLevel=Level" );
-			out.write( "GuiPotionEffects.LabelMinutes=Minutes" );
-			out.write( "GuiPotionEffects.LabelSeconds=Seconds" );
-			out.write( "GuiPotionEffects.ButtonSet=Set" );
-			out.write( "GuiPotionEffects.ButtonUnset=Unset");
-			out.write( "GuiBrewing.LabelTitle=Brewing");
-            out.write( "GuiBrewing.LabelLevel=Level" );
-			out.write( "GuiBrewing.LabelMinutes=Minutes");
-			out.write( "GuiBrewing.ButtonSet=Set");
-			out.write( "GuiTeleport.LabelTitle=Teleporting" );
-		    out.write( "GuiTeleport.LabelPosX=Pos X" );
-			out.write( "GuiTeleport.LabelPosY=Pos Y" );
-			out.write( "GuiTeleport.LabelPosZ=Pos Z" );
-			out.write( "GuiTeleport.ButtonTeleport=Teleport" );
-			out.write( "GuiMoreOptions.LabelTitle=More Options" );
-			out.write( "GuiMoreOptions.ButtonDisableFOV=Disable FOV" );
-			out.write( "GuiMoreOptions.ButtonInstantDrops=Instant drops" );
-			out.write( "GuiMoreOptions.ButtonInstantExperience=Instant EXP");
-			out.write( "GuiMoreOptions.ButtonGuiPausingGame=Gui pausing game");
-			out.write( "GuiMoreOptions.ButtonFlying=Flying" );
-			out.write( "GuiMoreOptions.ButtonInvulnerable=Invulnerable" );
-			out.write( "GuiMoreOptions.ButtonKillersight=Killer sight" );
-			out.write( "GuiMoreOptions.ButtonCreative=Creative mode" );
-			out.write( "GuiDeathScreen.ButtonContinue=Continue");
-			out.write( "GuiDeathScreen.LabelCoordinates=Coordinates = %coord%");
+			out.write( "GuiInventory.LabelCrafting=Crafting" + "\r\n");
+		    out.write( "GuiItemSelection.LabelItemSelection=Item selection" + "\r\n" );
+			out.write( "GuiHealthFood.LabelTitle=Health and food" + "\r\n" );
+			out.write( "GuiHealthFood.LabelFoodLevel=Food Level" + "\r\n" );
+			out.write( "GuiHealthFood.LabelSaturation=Saturation" + "\r\n" );
+			out.write( "GuiHealthFood.LabelExhaustion=Exhaustion" + "\r\n" );
+			out.write( "GuiHealthFood.ButtonSet=Set" + "\r\n" );
+			out.write( "GuiEnchanting.LabelTitle=Enchanting" + "\r\n" );
+			out.write( "GuiExperience.LabelTitle=Experience" + "\r\n" );
+			out.write( "GuiExperience.LabelLevel=Level" + "\r\n" );
+			out.write( "GuiExperience.LabelPercentage=Percentage" + "\r\n" );
+		    out.write( "GuiExperience.LabelScore=Score" + "\r\n" );
+			out.write( "GuiExperience.ButtonSet=Set" + "\r\n" );
+			out.write( "GuiPotionEffects.LabelTitle=Potion Effects" + "\r\n" );
+			out.write( "GuiPotionEffects.LabelLevel=Level" + "\r\n" );
+			out.write( "GuiPotionEffects.LabelMinutes=Minutes" + "\r\n" );
+			out.write( "GuiPotionEffects.LabelSeconds=Seconds" + "\r\n" );
+			out.write( "GuiPotionEffects.ButtonSet=Set" + "\r\n" );
+			out.write( "GuiPotionEffects.ButtonUnset=Unset" + "\r\n");
+			out.write( "GuiBrewing.LabelTitle=Brewing" + "\r\n");
+            out.write( "GuiBrewing.LabelLevel=Level" + "\r\n" );
+			out.write( "GuiBrewing.LabelMinutes=Minutes" + "\r\n");
+			out.write( "GuiBrewing.ButtonSet=Set" + "\r\n");
+			out.write( "GuiTeleport.LabelTitle=Teleporting" + "\r\n" );
+		    out.write( "GuiTeleport.LabelPosX=Pos X" + "\r\n" );
+			out.write( "GuiTeleport.LabelPosY=Pos Y" + "\r\n" );
+			out.write( "GuiTeleport.LabelPosZ=Pos Z" + "\r\n" );
+			out.write( "GuiTeleport.ButtonTeleport=Teleport" + "\r\n" );
+			out.write( "GuiMoreOptions.LabelTitle=More Options" + "\r\n" );
+			out.write( "GuiMoreOptions.ButtonDisableFOV=Disable FOV" + "\r\n" );
+			out.write( "GuiMoreOptions.ButtonInstantDrops=Instant drops" + "\r\n" );
+			out.write( "GuiMoreOptions.ButtonInstantExperience=Instant EXP" + "\r\n");
+			out.write( "GuiMoreOptions.ButtonGuiPausingGame=Gui pausing game" + "\r\n");
+			out.write( "GuiMoreOptions.ButtonFlying=Flying" + "\r\n");
+			out.write( "GuiMoreOptions.ButtonInvulnerable=Invulnerable"  + "\r\n" );
+			out.write( "GuiMoreOptions.ButtonKillersight=Killer sight" + "\r\n" );
+			out.write( "GuiMoreOptions.ButtonCreative=Creative mode" + "\r\n" );
+			out.write( "GuiDeathScreen.ButtonContinue=Continue" + "\r\n");
+			out.write( "GuiDeathScreen.LabelCoordinates=Coordinates = %coord%" + "\r\n");
+			out.write("GuiMain.Player=Player" + "\r\n");
+			out.write("GuiMain.LabelActiveCheats=Active Cheats" + "\r\n");
+			out.write("GuiMain.World=World" + "\r\n");
+			out.write("GuiMain.Console=Console" + "\r\n");
+			out.write("GuiMain.Keybinds=Keybinds" + "\r\n");
+			out.write("GuiMain.Radar=Radar" + "\r\n");
+			out.write("GuiMain.Minimap=Minimap" + "\r\n");
+			out.write("GuiMain.LabelPlayerInfo=PlayerInfo" + "\r\n");
 			
 			
 			out.close( );
 			
 		} catch ( Exception e ) { // Catch exception if any
-			System.err.println( "[Cheat Pack 2.3] Error writing the Translation File!: " + e.getMessage( ) );
+			cb.LogAgent.logInfo( "Error writing the Translation File!: " + e.getMessage( ) );
+			
 		}
 		Reader( );
 	} else {
