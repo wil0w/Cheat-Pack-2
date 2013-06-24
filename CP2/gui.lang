@@ -1,3 +1,6 @@
+//Cheat Pack 2 translation file, en_US locale.
+
+
 CheckBox.On=On
 CheckBox.Off=Off
 
@@ -69,3 +72,12 @@ GuiMoreOptions.ButtonCreative=Creative mode
 
 GuiDeathScreen.ButtonContinue=Continue
 GuiDeathScreen.LabelCoordinates=Coordinates = %coord%
+
+GuiMain.Player=Player
+GuiMain.LabelActiveCheats=Active Cheats
+GuiMain.World=World
+GuiMain.Console=Console
+GuiMain.Keybinds=Keybinds
+GuiMain.Radar=Radar
+GuiMain.Minimap=Minimap
+GuiMain.LabelPlayerInfo=Player Info

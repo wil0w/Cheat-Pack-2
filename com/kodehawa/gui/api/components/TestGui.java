@@ -34,6 +34,7 @@ import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
 import com.kodehawa.CheatBase;
+import com.kodehawa.CheatPack;
 import com.kodehawa.gui.api.render.ModGuiUtils;
 import com.kodehawa.gui.api.testing.TestEntityRenderer;
 import com.kodehawa.mods.Mod;
@@ -128,7 +129,7 @@ public class TestGui extends GuiScreen {
 	}
 	
 	public void makeWorldFrame( ) {
-		Frame wFrame = new Frame( CheatBase.instance, 10, 10, 120, 20, 0xff550055, 0xaa000000, "World" );
+		Frame wFrame = new Frame( CheatBase.instance, 10, 10, 120, 20, 0xff550055, 0xaa000000, CheatPack.translate("GuiMain.World") );
 		for ( Mod m : CheatBase.instance.mmanager.worldMods ) {
 			Button b = new Button( m.name, 0xff000077, 0xffffff, m );
 			b.setWidth( wFrame.width - 6 );
@@ -140,7 +141,7 @@ public class TestGui extends GuiScreen {
 	}
 	
 	public void makePlayerFrame( ) {
-		Frame pFrame = new Frame( CheatBase.instance, 130, 10, 120, 20, 0xff550055, 0xaa000000, "Player" );
+		Frame pFrame = new Frame( CheatBase.instance, 130, 10, 120, 20, 0xff550055, 0xaa000000, CheatPack.translate("GuiMain.Player") );
 		for ( Mod m : CheatBase.instance.mmanager.playerMods ) {
 			Button b = new Button( m.name, 0xff000077, 0xffffff, m );
 			b.setWidth( pFrame.width - 6 );
@@ -228,7 +229,7 @@ public class TestGui extends GuiScreen {
 	public void makeMinimapFrame( ) {
 		final TestMap map = new TestMap( );
 		
-		Frame mFrame = new Frame( CheatBase.instance, 380, 10, 134, 20, 0xff550055, 0xaa000000, "Minimap" ) {
+		Frame mFrame = new Frame( CheatBase.instance, 380, 10, 134, 20, 0xff550055, 0xaa000000, CheatPack.translate("GuiMain.Minimap") ) {
 			
 			@Override
 			public void update( ) {
@@ -254,7 +255,7 @@ public class TestGui extends GuiScreen {
 	
 	public void makeRadarFrame( ) {
 		final Radar r = new Radar( );
-		Frame rFrame = new Frame( CheatBase.instance, 10, 30, 120, 20, 0xff550055, 0xaa000000, "Radar" ) {
+		Frame rFrame = new Frame( CheatBase.instance, 10, 30, 120, 20, 0xff550055, 0xaa000000, CheatPack.translate("GuiMain.Radar") ) {
 			@Override
 			public void update( ) {
 				this.draw( );
@@ -272,7 +273,7 @@ public class TestGui extends GuiScreen {
 	}
 	
 	public void makeActivesFrame( ) {
-		Frame aFrame = new Frame( CheatBase.instance, 130, 30, 120, 20, 0xff550055, 0xaa000000, "Active Cheats" ) {
+		Frame aFrame = new Frame( CheatBase.instance, 130, 30, 120, 20, 0xff550055, 0xaa000000, CheatPack.translate("GuiMain.LabelActiveCheats") ) {
 			@Override
 			public void update( ) {
 				this.draw( );
@@ -341,7 +342,7 @@ public class TestGui extends GuiScreen {
 	}
 	
 	public void makeInfoFrame( ) {
-		final Frame iFrame = new Frame( CheatBase.instance, 250, 30, 120, 20, 0xff550055, 0xaa000000, "Player Info" ) {
+		final Frame iFrame = new Frame( CheatBase.instance, 250, 30, 120, 20, 0xff550055, 0xaa000000, CheatPack.translate("GuiMain.LabelPlayerInfo") ) {
 			@Override
 			public void update( ) {
 				this.draw( );
@@ -365,13 +366,12 @@ public class TestGui extends GuiScreen {
 					children.clear( );
 					addChild( new Label( "User: " + CheatBase.instance.minecraft.thePlayer.username, 0xffffff ) );
 					addChild( new Label( "FPS: " + mc.debugFPS, 0xffffff ) );
-					addChild( new Label( "Lag: " + TcpConnection.field_74490_x, 0xffffff ) );
 					addChild( new Label( "X: " + (int) CheatBase.instance.minecraft.thePlayer.posX, 0xffffff ) );
 					addChild( new Label( "Y: " + (int) CheatBase.instance.minecraft.thePlayer.posY, 0xffffff ) );
 					addChild( new Label( "Z: " + (int) CheatBase.instance.minecraft.thePlayer.posZ, 0xffffff ) );
 					addChild( new Label( "Dimension: " + dim, 0xffffff ) );
-					addChild( new Label( "Facing " + dir, 0xffffff ) );
-					addChild( new Label( "Timer: " + Timer.timerSpeed, 0xffffff ) );
+					//addChild( new Label( "Facing " + dir, 0xffffff ) );
+					
 					
 					addChild( new Label( "", 0xffffff ) );
 				} catch ( Exception e ) {
@@ -542,7 +542,7 @@ public class TestGui extends GuiScreen {
 	public void initFrames( ) {
 		makeWorldFrame( );
 		makePlayerFrame( );
-		makeKeybindsFrame( );
+		//makeKeybindsFrame( );
 		makeMinimapFrame( );
 		makeRadarFrame( );
 		makeActivesFrame( );
