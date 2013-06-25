@@ -22,11 +22,11 @@
 
 package com.kodehawa.console;
 
-import net.minecraft.src.Timer;
+import net.minecraft.client.Minecraft;
 
 import com.kodehawa.util.ChatColour;
 
-public class TimerPlus implements BaseCommand {
+public class Flood implements BaseCommand {
 	String endres = "";
 	
 	@Override
@@ -38,13 +38,13 @@ public class TimerPlus implements BaseCommand {
 	@Override
 	public String getName( ) {
 		// TODO Auto-generated method stub
-		return "timer";
+		return "flood";
 	}
 	
 	@Override
 	public String showHelp( ) {
 		// TODO Auto-generated method stub
-		return new String( ChatColour.RED + "Usage: " + ChatColour.AQUA + this.getName( ) + " <speed>" );
+		return new String( ChatColour.RED + "Usage: " + ChatColour.AQUA + this.getName( ) + " <message>" );
 	}
 	
 	@Override
@@ -55,17 +55,18 @@ public class TimerPlus implements BaseCommand {
 	
 	String output( String[ ] cmd ) {
 		try {
-			if ( cmd.length <= 1 ) {
-				throw new NullPointerException( );
-			} else if ( cmd.length == 2 ) {
-				Timer.timerSpeed = Float.parseFloat( cmd [ 1 ] );
-				return new String( ChatColour.RED + "Timer speed set to " + cmd [ 1 ] + "!" );
-			} else {
+			if ( cmd.length == 1 ) {
 				throw new NullPointerException( );
 			}
+			StringBuilder result = new StringBuilder( );
+			for ( int i = 0; i < ( cmd.length - 1 ); i++ ) {
+				result.append( cmd [ i + 1 ] ).append( " " );
+			}
+			for ( int j = 0; j < 25; j++ ) {
+				Minecraft.getMinecraft( ).thePlayer.sendChatMessage( result.toString( ) );
+			}
+			return "Spam successful!";
 		} catch ( Exception e ) {
-			// ConsoleHelper.addMessage( ChatColour.DARK_RED +
-			// e.printStackTrace( ) );
 			return showHelp( );
 		}
 	}

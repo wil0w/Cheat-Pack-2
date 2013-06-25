@@ -43,7 +43,7 @@ import org.lwjgl.input.Keyboard;
 public final class CheatPack
 {
     public static final String copyright = "Cheat Pack 2.3 #4 by Binkan Salaryman";
-    public static final CheatPack coreBase;
+    public static CheatPack coreBase;
     public static CBOriginal sspBase = new CBOriginal();
     public static CBOriginal smpBase = new CBOriginal();
     public static Integer dimensions[];
@@ -491,7 +491,7 @@ public final class CheatPack
 
     
  
-    static
+   public static void init()
     {
         coreBase = new CheatPack();
         System.out.println("<<< Cheat Pack 2 - Init System >>>");
@@ -510,7 +510,7 @@ public final class CheatPack
         }
         catch (Exception exception)
         {
-            coreBase.throwException("Cheat Pack 2 content missing!", exception);
+            //coreBase.throwException("Cheat Pack 2 content missing!", exception);
         }
 
         loadConfig();

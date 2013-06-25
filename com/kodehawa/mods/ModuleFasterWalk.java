@@ -17,7 +17,7 @@ public class ModuleFasterWalk extends Mod implements Tickable {
 	
 	@Override
 	public void tick() {
-		mc.thePlayer.capabilities.walkSpeed = 0.2F;
+		mc.thePlayer.capabilities.setWalkSpeed(0.2F);
 		
 	}
 
@@ -31,7 +31,7 @@ public class ModuleFasterWalk extends Mod implements Tickable {
 	@Override
 	public void onDisable() {
 		cb.removeFromTick( this );
-		mc.thePlayer.capabilities.walkSpeed = 0.1F;
+		mc.thePlayer.capabilities.setWalkSpeed(0.1F);
 		cb.getUtils( ).addChatMessage( getActive( ) );
 	}
 

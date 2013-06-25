@@ -67,7 +67,6 @@ public class ModuleFly extends Mod implements Tickable {
 	public void onEnable( ) {
 		cheatbase.addToTick( this );
 		mc.thePlayer.capabilities.isFlying = true;
-		mc.thePlayer.capabilities.flySpeed = 0.1F;
 		cheatbase.getUtils( ).addChatMessage( getActive( ) );
 		cheatbase.getUtils( ).addChatMessage( "Take care with the bug!" );
 	}

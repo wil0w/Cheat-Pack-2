@@ -186,6 +186,8 @@ public abstract class Minecraft implements Runnable, IPlayerUsage
 
     /** Profiler currently displayed in the debug screen pie chart */
     private String debugProfilerName = "root";
+    
+    private HashMap<String, Integer> compat; //0 - disabled; 1 - normal; 2 - mcp
 
     public Minecraft(Canvas par1Canvas, MinecraftApplet par2MinecraftApplet, int par3, int par4, boolean par5)
     {
@@ -202,6 +204,8 @@ public abstract class Minecraft implements Runnable, IPlayerUsage
         theMinecraft = this;
         TextureManager.init();
         this.guiAchievement = new GuiAchievement(this);
+        compat = new HashMap<String, Integer>();
+        checkCompatibility("ModLoader");
     }
 
     private void startTimerHackThread()
@@ -220,8 +224,9 @@ public abstract class Minecraft implements Runnable, IPlayerUsage
     /**
      * Displays an unexpected error that has come up during the game.
      */
-    public abstract void displayUnexpectedThrowable(UnexpectedThrowable unexpectedthrowable);
-
+    public void displayUnexpectedThrowable(UnexpectedThrowable unexpectedthrowable) {
+	}
+    
 
     /**
      * Wrapper around displayCrashReportInternal
@@ -2522,4 +2527,29 @@ public abstract class Minecraft implements Runnable, IPlayerUsage
     {
         return this.field_94139_O;
     }
+    
+  
+
+    
+    //Exalm's code.
+    
+    private void checkCompatibility(String mod){
+        try{
+            Class.forName(mod);
+        }catch(ClassNotFoundException e){
+            try{
+                Class.forName("net.minecraft.src."+mod);
+            }
+            catch(ClassNotFoundException ex){
+                compat.put(mod, 0);
+                return;
+            }
+            System.out.println("Cheat Pack 2: Enabled "+mod+" compatibility");
+            compat.put(mod, 2);
+            return;
+        }
+        System.out.println("Cheat Pack 2: Enabled "+mod+" compatibility");
+        compat.put(mod, 1);
+    }
+    
 }

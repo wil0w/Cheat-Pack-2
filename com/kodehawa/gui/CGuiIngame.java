@@ -35,8 +35,10 @@ public class CGuiIngame extends GuiIngame {
 	public static CheatBase cb;
 	
 	
+	
 	public CGuiIngame( Minecraft par1Minecraft ) {
 		super( par1Minecraft );
+
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -48,6 +50,8 @@ public class CGuiIngame extends GuiIngame {
 		super.renderGameOverlay( par1, par2, par3, par4 );
 		
 		GL11.glPushMatrix( );
+		 
+		
 		GL11.glPopMatrix( );
 		
 	}

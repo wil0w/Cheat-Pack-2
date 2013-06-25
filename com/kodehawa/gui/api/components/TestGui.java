@@ -129,7 +129,7 @@ public class TestGui extends GuiScreen {
 	}
 	
 	public void makeWorldFrame( ) {
-		Frame wFrame = new Frame( CheatBase.instance, 10, 10, 120, 20, 0xff550055, 0xaa000000, CheatPack.translate("GuiMain.World") );
+		Frame wFrame = new Frame( CheatBase.instance, 10, 10, 120, 20, 0xff550055, 0xaa000000, "World" );
 		for ( Mod m : CheatBase.instance.mmanager.worldMods ) {
 			Button b = new Button( m.name, 0xff000077, 0xffffff, m );
 			b.setWidth( wFrame.width - 6 );
@@ -141,7 +141,7 @@ public class TestGui extends GuiScreen {
 	}
 	
 	public void makePlayerFrame( ) {
-		Frame pFrame = new Frame( CheatBase.instance, 130, 10, 120, 20, 0xff550055, 0xaa000000, CheatPack.translate("GuiMain.Player") );
+		Frame pFrame = new Frame( CheatBase.instance, 130, 10, 120, 20, 0xff550055, 0xaa000000, "Player" );
 		for ( Mod m : CheatBase.instance.mmanager.playerMods ) {
 			Button b = new Button( m.name, 0xff000077, 0xffffff, m );
 			b.setWidth( pFrame.width - 6 );
@@ -229,7 +229,7 @@ public class TestGui extends GuiScreen {
 	public void makeMinimapFrame( ) {
 		final TestMap map = new TestMap( );
 		
-		Frame mFrame = new Frame( CheatBase.instance, 380, 10, 134, 20, 0xff550055, 0xaa000000, CheatPack.translate("GuiMain.Minimap") ) {
+		Frame mFrame = new Frame( CheatBase.instance, 380, 10, 134, 20, 0xff550055, 0xaa000000, "Minimap" ) {
 			
 			@Override
 			public void update( ) {
@@ -255,7 +255,7 @@ public class TestGui extends GuiScreen {
 	
 	public void makeRadarFrame( ) {
 		final Radar r = new Radar( );
-		Frame rFrame = new Frame( CheatBase.instance, 10, 30, 120, 20, 0xff550055, 0xaa000000, CheatPack.translate("GuiMain.Radar") ) {
+		Frame rFrame = new Frame( CheatBase.instance, 10, 30, 120, 20, 0xff550055, 0xaa000000, "Radar" ) {
 			@Override
 			public void update( ) {
 				this.draw( );
@@ -273,7 +273,7 @@ public class TestGui extends GuiScreen {
 	}
 	
 	public void makeActivesFrame( ) {
-		Frame aFrame = new Frame( CheatBase.instance, 130, 30, 120, 20, 0xff550055, 0xaa000000, CheatPack.translate("GuiMain.LabelActiveCheats") ) {
+		Frame aFrame = new Frame( CheatBase.instance, 130, 30, 120, 20, 0xff550055, 0xaa000000, "Active Cheats" ) {
 			@Override
 			public void update( ) {
 				this.draw( );
@@ -342,7 +342,7 @@ public class TestGui extends GuiScreen {
 	}
 	
 	public void makeInfoFrame( ) {
-		final Frame iFrame = new Frame( CheatBase.instance, 250, 30, 120, 20, 0xff550055, 0xaa000000, CheatPack.translate("GuiMain.LabelPlayerInfo") ) {
+		final Frame iFrame = new Frame( CheatBase.instance, 250, 30, 120, 20, 0xff550055, 0xaa000000, "Player Info" ) {
 			@Override
 			public void update( ) {
 				this.draw( );

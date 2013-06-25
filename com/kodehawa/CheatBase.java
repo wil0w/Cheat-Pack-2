@@ -24,6 +24,9 @@
 package com.kodehawa;
 
 import java.io.File;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -55,7 +58,7 @@ import com.kodehawa.util.WaypointManager;
 public class CheatBase {
 	
 	public static CheatBase instance;
-	
+	public CheatPack ck6;
 	
 	public static CustomFont guiFont;
 	public static boolean truelyinstalled = true;
@@ -66,12 +69,14 @@ public class CheatBase {
 	public String modName = "Cheat Pack 2";
 	public String mcversion = "Minecraft 1.5.2";
 	public String modversion = "Cheat Pack 2.5";
+	public String build = "Build 6 - 24.06.2013";
 	
 	
 	public CheatBase( Minecraft mc ) {
 		instance = this;
 		minecraft = mc;
 		ck = new CheckKey( mc );
+		ck6.init();
 		init( );
 	}
 	
@@ -90,6 +95,7 @@ public class CheatBase {
 		translations = new TranslationWritter( );
 		femanager = new FrenemyManager( );
 		console = new Console( );
+		chk = new CheatPack();
 		LogAgent.logInfo("Initialization Complete");
 		LogAgent.logInfo("SSP/SMP mode enabled.");
 		guiFont = new CustomFont( minecraft, "Bauhaus", 20 );
@@ -97,24 +103,47 @@ public class CheatBase {
 			keyShit.put( m, m.keyBind );
 		}
 		LogAgent.logInfo(" + Modloader compatibility enabled");
-		LogAgent.logInfo(modversion + " - " + "Build 6 - 24.06.2013");
+		LogAgent.logInfo(modversion + " - " + build);
         
 	}
 	
-	
-
-	protected static void checkEnvironment()
+	//Reflector 
+	public static Object getPrivateValue(Class class1, Object obj, String s) throws IllegalArgumentException, SecurityException, NoSuchFieldException
     {
-        hasModLoader = cb.classExists("ModLoader");
-
-        if (hasModLoader)
+        try
         {
-        	LogAgent.logInfo("CP2: ModLoader compatibility activated");
+            Field field = class1.getDeclaredField(s);
+            field.setAccessible(true);
+            return field.get(obj);
         }
+        catch (IllegalAccessException illegalaccessexception)
+        {
+            chk.throwException("[Cheat Pack 2] [Reflector] Failed to get a private value!", illegalaccessexception);
+        }
+
+        return null;
     }
 	
+	public static Object getPrivateMethod(Class class1, Object obj, String s) throws IllegalAccessException, InvocationTargetException, NoSuchMethodException, SecurityException
+	{
+		try
+		{
+		Method method = class1.getDeclaredMethod(s);
+		method.setAccessible(true);
+	    return method.invoke(obj);
+	   }
+    catch (IllegalAccessException illegalaccessexception)
+    {
+        chk.throwException("[Cheat Pack 2] [Reflector] Failed to get a private method!", illegalaccessexception);
+    }
+		return null;
+	}
+	
+	
+	//Initialization
+    
 
-	public void reload( ) {
+       public void reload( ) {
 		for ( Mod m : mmanager.mods ) {
 			m.turnOff( );
 		}
@@ -176,7 +205,6 @@ public class CheatBase {
 				minecraft.displayGuiScreen( guicheat );
 			
 			if ( ck.checkKey( Keyboard.KEY_GRAVE ) ) {
-				// TODO Console
 			minecraft.displayGuiScreen( new Console( ) );
 			if ( ck.checkKey( Keyboard.KEY_J ) ) {
 				minecraft.displayGuiScreen( new GuiXraySelectedBlock( ) );
@@ -238,6 +266,7 @@ public class CheatBase {
 	public WaypointManager wmanager;
 	public Console console;
 	public CheatBase cheatbase;
+	public static CheatPack chk;
 	public static CheatBase cb;
 	public GuiItemSelection guicheat;
     

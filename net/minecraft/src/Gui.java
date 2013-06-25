@@ -4,11 +4,10 @@ import org.lwjgl.opengl.GL11;
 
 public class Gui
 {
-    protected static float zLevel = 0.0F;
+    protected float zLevel = 0.0F;
     public static float zLevel2 = 0.0F;
-    
 
-    protected static void drawHorizontalLine(int par1, int par2, int par3, int par4)
+    protected void drawHorizontalLine(int par1, int par2, int par3, int par4)
     {
         if (par2 < par1)
         {
@@ -20,7 +19,7 @@ public class Gui
         drawRect(par1, par3, par2 + 1, par3 + 1, par4);
     }
 
-    protected static void drawVerticalLine(int par1, int par2, int par3, int par4)
+    protected void drawVerticalLine(int par1, int par2, int par3, int par4)
     {
         if (par3 < par2)
         {
@@ -75,7 +74,7 @@ public class Gui
     /**
      * Draws a rectangle with a vertical gradient between the specified colors.
      */
-    protected static void drawGradientRect(int par1, int par2, int par3, int par4, int par5, int par6)
+    protected void drawGradientRect(int par1, int par2, int par3, int par4, int par5, int par6)
     {
         float var7 = (float)(par5 >> 24 & 255) / 255.0F;
         float var8 = (float)(par5 >> 16 & 255) / 255.0F;
@@ -91,13 +90,13 @@ public class Gui
         GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
         GL11.glShadeModel(GL11.GL_SMOOTH);
         Tessellator var15 = Tessellator.instance;
-        var15.startDrawingQuads( );
-		var15.setColorRGBA_F( var8, var9, var10, var7 );
-		var15.addVertex( par3, par2, zLevel );
-		var15.addVertex( par1, par2, zLevel );
-		var15.setColorRGBA_F( var12, var13, var14, var11 );
-		var15.addVertex( par1, par4, zLevel );
-		var15.addVertex( par3, par4, zLevel );
+        var15.startDrawingQuads();
+        var15.setColorRGBA_F(var8, var9, var10, var7);
+        var15.addVertex((double)par3, (double)par2, (double)this.zLevel);
+        var15.addVertex((double)par1, (double)par2, (double)this.zLevel);
+        var15.setColorRGBA_F(var12, var13, var14, var11);
+        var15.addVertex((double)par1, (double)par4, (double)this.zLevel);
+        var15.addVertex((double)par3, (double)par4, (double)this.zLevel);
         var15.draw();
         GL11.glShadeModel(GL11.GL_FLAT);
         GL11.glDisable(GL11.GL_BLEND);

@@ -137,6 +137,6 @@ public class GuiExperience extends GuiScreen
 
     private void applyChanges()
     {
-        CheatPack.getBase(mc).setExperience(mc.thePlayer, level.toInt(), percentage.toFloat(), getEventButton());
+        //CheatPack.getBase(mc).setExperience(mc.thePlayer, level.toInt(), percentage.toFloat(), getEventButton());
     }
 }
