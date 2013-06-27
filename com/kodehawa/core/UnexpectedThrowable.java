@@ -1,4 +1,4 @@
-package net.minecraft.src;
+package com.kodehawa.core;
 
 public class UnexpectedThrowable
 {

@@ -35,10 +35,11 @@ import java.util.Properties;
 import net.minecraft.client.Minecraft;
 import net.minecraft.src.EntityClientPlayerMP;
 import net.minecraft.src.GuiScreen;
-import net.minecraft.src.UnexpectedThrowable;
 import net.minecraft.src.World;
 
 import org.lwjgl.input.Keyboard;
+
+import com.kodehawa.core.UnexpectedThrowable;
 
 public final class CheatPack
 {
@@ -79,16 +80,10 @@ public final class CheatPack
 
         if (hasModLoader)
         {
-            System.out.println("+ Modloader compatibility activated");
-        }
-
-        hasZMod = coreBase.classExists("ZMod");
-
-        if (hasZMod)
-        {
-            System.out.println("+ Zombe's mod pack compatibility activated");
-        }
-    }
+            System.out.println("Cheat Pack 2: ModLoader Initialization Complete. All mods OK.");
+        }}
+    
+      
 
     public static void loadDimensions()
     {
@@ -372,7 +367,7 @@ public final class CheatPack
         }
         catch (Exception exception)
         {
-            throwException((new StringBuilder()).append("Failed to load config integer: ").append(s).toString(), exception);
+            //throwException((new StringBuilder()).append("Failed to load config integer: ").append(s).toString(), exception);
         }
 
         return 0;
@@ -494,8 +489,9 @@ public final class CheatPack
    public static void init()
     {
         coreBase = new CheatPack();
-        System.out.println("<<< Cheat Pack 2 - Init System >>>");
-        System.out.println("<<< Cheat Pack 2 GUI Init System >>>");
+        //No more needed
+       // System.out.println("<<< Cheat Pack 2 - Init System >>>");
+       // System.out.println("<<< Cheat Pack 2 GUI Init System >>>");
         checkEnvironment();
         loadDimensions();
         loadSettings();

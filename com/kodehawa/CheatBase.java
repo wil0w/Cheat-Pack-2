@@ -102,7 +102,7 @@ public class CheatBase {
 		for ( Mod m : mmanager.mods ) {
 			keyShit.put( m, m.keyBind );
 		}
-		LogAgent.logInfo(" + Modloader compatibility enabled");
+		//LogAgent.logInfo(" + Modloader compatibility enabled");
 		LogAgent.logInfo(modversion + " - " + build);
         
 	}

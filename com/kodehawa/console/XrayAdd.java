@@ -11,8 +11,7 @@ public class XrayAdd implements BaseCommand {
 			if ( cmd.length <= 1 ) {
 				throw new NullPointerException( );
 			} else if ( cmd.length == 2 ) {
-				// Colony.instance.updateXrayList( Integer.parseInt( cmd [ 1 ] )
-				// );
+				
 			} else {
 				throw new NullPointerException( );
 			}

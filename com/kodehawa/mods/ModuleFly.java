@@ -53,8 +53,8 @@ public class ModuleFly extends Mod implements Tickable {
 		mc.thePlayer.capabilities.isFlying = true;
 		mc.thePlayer.isAirBorne = true;
 		mc.thePlayer.isJumping = true;
-		mc.thePlayer.setAir( 100 );
-		mc.thePlayer.setAir( 10 );
+		mc.thePlayer.setAir( 280 );
+		mc.thePlayer.setAir( 120 );
 	
 		Packet11PlayerPosition.onGround = true;
 	    Packet10Flying.onGround = true;
@@ -67,6 +67,7 @@ public class ModuleFly extends Mod implements Tickable {
 	public void onEnable( ) {
 		cheatbase.addToTick( this );
 		mc.thePlayer.capabilities.isFlying = true;
+		mc.thePlayer.capabilities.setFlySpeed(0.2F);
 		cheatbase.getUtils( ).addChatMessage( getActive( ) );
 		cheatbase.getUtils( ).addChatMessage( "Take care with the bug!" );
 	}

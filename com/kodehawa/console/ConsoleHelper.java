@@ -34,10 +34,12 @@ public class ConsoleHelper {
 		addCommand( new Help( ) );
 		addCommand( new Enchant( ) );
 		addCommand( new Speed( ) );
-		addCommand( new Bind( ) );
+		//It's buggy D:
+		//addCommand( new Bind( ) );
 		addCommand( new List( ) );
 		addCommand( new AddFriend( ) );
 		addCommand( new AddEnemy( ) );
+		//Reload the whole mod.
 		addCommand( new Reloader( ) );
 		addCommand( new Spy( ) );
 		addCommand( new SpyList( ) );

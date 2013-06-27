@@ -15,8 +15,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+
 import javax.swing.JPanel;
+
 import net.minecraft.src.*;
+
 import org.lwjgl.LWJGLException;
 import org.lwjgl.Sys;
 import org.lwjgl.input.Keyboard;
@@ -29,6 +32,8 @@ import org.lwjgl.opengl.GL20;
 import org.lwjgl.opengl.GLContext;
 import org.lwjgl.opengl.PixelFormat;
 import org.lwjgl.util.glu.GLU;
+
+import com.kodehawa.core.UnexpectedThrowable;
 
 public abstract class Minecraft implements Runnable, IPlayerUsage
 {
@@ -205,7 +210,9 @@ public abstract class Minecraft implements Runnable, IPlayerUsage
         TextureManager.init();
         this.guiAchievement = new GuiAchievement(this);
         compat = new HashMap<String, Integer>();
+        System.out.println("Cheat Pack 2: Pre-Initialization Event.");
         checkCompatibility("ModLoader");
+        
     }
 
     private void startTimerHackThread()
@@ -2364,6 +2371,7 @@ public abstract class Minecraft implements Runnable, IPlayerUsage
         return par1CrashReport;
     }
 
+    //Lol, singleton xD
     /**
      * Return the singleton Minecraft instance for the game
      */
@@ -2544,12 +2552,13 @@ public abstract class Minecraft implements Runnable, IPlayerUsage
                 compat.put(mod, 0);
                 return;
             }
+            System.out.println("Cheat Pack 2: Detected "+mod+" trying to enable compatibility....");
             System.out.println("Cheat Pack 2: Enabled "+mod+" compatibility");
             compat.put(mod, 2);
             return;
         }
+        System.out.println("Cheat Pack 2: Detected "+mod+" trying to enable compatiblity..... ");
         System.out.println("Cheat Pack 2: Enabled "+mod+" compatibility");
         compat.put(mod, 1);
-    }
-    
-}
+    }}
+

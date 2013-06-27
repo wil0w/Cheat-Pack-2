@@ -49,7 +49,7 @@ public class ModuleFullbright extends Mod implements Tickable {
 	public void onDisable( ) {
 		cb.getUtils( ).addChatMessage( getActive( ) );
 		//Fixed!
-		minecraft.gameSettings.gammaSetting = 0.2F;
+		minecraft.gameSettings.gammaSetting = 0.5F;
 		cb.removeFromTick( this );
 	}
 	

@@ -39,9 +39,8 @@ public class ModuleInvulnerable extends Mod implements Tickable {
 
 	@Override
 	public void tick() {
-		//mc.thePlayer.capabilities.disableDamage = true;
-		cp.getBase(mc).setInvulnerable(mc.thePlayer, invulnerable);
-		//mc.thePlayer.capabilities.allowFlying = true;
+		mc.thePlayer.capabilities.disableDamage = true;
+		
 	}
 
 	@Override
