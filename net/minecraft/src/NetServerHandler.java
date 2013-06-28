@@ -286,7 +286,7 @@ public class NetServerHandler extends NetHandler
 
                 if (var25 > 0.0625D && !this.playerEntity.isPlayerSleeping() && !this.playerEntity.theItemInWorldManager.isCreative())
                 {
-                    var31 = true;
+                    //var31 = true;
                     this.mcServer.getLogAgent().logWarning(this.playerEntity.username + " moved wrongly!");
                 }
 
