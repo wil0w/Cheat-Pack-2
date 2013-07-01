@@ -23,22 +23,24 @@
 
 package com.kodehawa.newgui;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.src.GuiButton;
-import net.minecraft.src.RenderEngine;
+import net.minecraft.src.Minecraft;
+import net.minecraft.src.ResourceLocation;
+
 import org.lwjgl.opengl.GL11;
 
 public class GuiImageButton extends GuiButton
 {
 	
 	protected Minecraft mc;
-    public String texture;
+    public static String texture;
     public int imgxpos;
     public int imgypos;
     public int imgwidth;
     public int imgheight;
     public int imgxoffset;
     public int imgyoffset;
+    protected static final ResourceLocation field_CP2_oi = new ResourceLocation(texture);
 
     public GuiImageButton(int i, int j, int k, int l, int i1)
     {
@@ -78,7 +80,8 @@ public class GuiImageButton extends GuiButton
         }
         else
         {
-            this.mc.renderEngine.bindTexture(texture);
+        	mc.func_110434_K().func_110577_a(field_CP2_oi);
+            //this.mc.renderEngine.bindTexture(texture);
             GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
             boolean flag = enabled && drawButton && i >= xPosition && j >= yPosition && i < xPosition && j < yPosition;
             int k = getHoverState(flag);

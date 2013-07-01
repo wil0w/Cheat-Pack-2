@@ -74,7 +74,7 @@ public class GuiPotionEffects extends GuiScreen
         Keyboard.enableRepeatEvents(true);
         int i = (int)((float)(width - 218) * 0.5F);
         int j = (int)((float)(height - 148) * 0.5F);
-        buttonList.addAll(effect.initGui(0, 1, 2, StringTranslate.getInstance().translateKey(Potion.potionTypes[effect.index].getName()), i + 9, j + 9, 200));
+        //buttonList.addAll(effect.initGui(0, 1, 2, StringTranslate.getInstance().translateKey(Potion.potionTypes[effect.index].getName()), i + 9, j + 9, 200));
         int ai[] = loadValues(effect.index);
         level = new GuiValueField(new IntBuilder(ai[0]), fontRenderer, i + 9, j + 35, 200, 20);
         minutes = new GuiValueField(new IntBuilder(ai[1], 0, 0, 0x1b4e46), fontRenderer, i + 9, j + 61, 200, 20);
@@ -89,7 +89,7 @@ public class GuiPotionEffects extends GuiScreen
     public void drawScreen(int i, int j, float f)
     {
         drawDefaultBackground();
-        this.mc.renderEngine.bindTexture("/CP2/resources/guipotioneffects.png");
+        //this.mc.renderEngine.bindTexture("/CP2/resources/guipotioneffects.png");
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         
         int l = (width - 218) / 2;
@@ -98,7 +98,7 @@ public class GuiPotionEffects extends GuiScreen
         level.drawScreen(i, j, f);
         minutes.drawScreen(i, j, f);
         seconds.drawScreen(i, j, f);
-        effect.setInfo(StringTranslate.getInstance().translateKey(Potion.potionTypes[effect.index].getName()));
+        //effect.setInfo(StringTranslate.getInstance().translateKey(Potion.potionTypes[effect.index].getName()));
         drawCenteredString(fontRenderer, CheatPack.translate("GuiPotionEffects.LabelTitle"), width / 2, 20, 0xffffff);
         drawCenteredString(fontRenderer, CheatPack.translate("GuiPotionEffects.LabelLevel"), width / 2, i1 + 35 + 5, 0xffffff);
         drawCenteredString(fontRenderer, CheatPack.translate("GuiPotionEffects.LabelMinutes"), width / 2, i1 + 61 + 5, 0xffffff);
@@ -142,11 +142,11 @@ public class GuiPotionEffects extends GuiScreen
                 seconds.getIntBuilder().setInt(seconds.getIntBuilder().max);
             }
 
-            CheatPack.getBase(mc).setPotionEffect(mc.thePlayer, new PotionEffect(effect.index, CheatPack.timeToTicks(minutes.toInt(), seconds.toInt()), level.toInt()));
+            //CheatPack.getBase(mc).setPotionEffect(mc.thePlayer, new PotionEffect(effect.index, CheatPack.timeToTicks(minutes.toInt(), seconds.toInt()), level.toInt()));
         }
         else
         {
-            CheatPack.getBase(mc).unsetPotionEffect(mc.thePlayer, effect.index);
+            //CheatPack.getBase(mc).unsetPotionEffect(mc.thePlayer, effect.index);
             level.getIntBuilder().setInt(0);
             minutes.getIntBuilder().setInt(0);
             seconds.getIntBuilder().setInt(0);

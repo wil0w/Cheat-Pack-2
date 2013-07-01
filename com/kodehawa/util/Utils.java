@@ -22,8 +22,7 @@
 
 package com.kodehawa.util;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.src.Entity;
+import net.minecraft.src.Minecraft;
 
 public class Utils {
 	

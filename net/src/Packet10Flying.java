@@ -1,7 +1,7 @@
 package net.minecraft.src;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
+import java.io.DataInput;
+import java.io.DataOutput;
 import java.io.IOException;
 
 public class Packet10Flying extends Packet
@@ -43,25 +43,25 @@ public class Packet10Flying extends Packet
     /**
      * Passes this Packet on to the NetHandler for processing.
      */
-    public void processPacket(NetHandler par1NetHandler)
+    public void processPacket(NetHandler p_73279_1_)
     {
-        par1NetHandler.handleFlying(this);
+        p_73279_1_.handleFlying(this);
     }
 
     /**
      * Abstract. Reads the raw packet data from the data stream.
      */
-    public void readPacketData(DataInputStream par1DataInputStream) throws IOException
+    public void readPacketData(DataInput p_73267_1_) throws IOException
     {
-        this.onGround = par1DataInputStream.read() != 0;
+        this.onGround = p_73267_1_.readUnsignedByte() != 0;
     }
 
     /**
      * Abstract. Writes the raw packet data to the data stream.
      */
-    public void writePacketData(DataOutputStream par1DataOutputStream) throws IOException
+    public void writePacketData(DataOutput p_73273_1_) throws IOException
     {
-        par1DataOutputStream.write(this.onGround ? 1 : 0);
+        p_73273_1_.write(this.onGround ? 1 : 0);
     }
 
     /**
@@ -84,7 +84,7 @@ public class Packet10Flying extends Packet
      * eg return packet30entity.entityId == entityId; WARNING : will throw if you compare a packet to a different packet
      * class
      */
-    public boolean containsSameEntityIDAs(Packet par1Packet)
+    public boolean containsSameEntityIDAs(Packet p_73268_1_)
     {
         return true;
     }

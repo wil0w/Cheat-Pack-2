@@ -24,6 +24,7 @@ package com.kodehawa.newgui;
 
 import net.minecraft.src.GuiButton;
 import net.minecraft.src.GuiScreen;
+import net.minecraft.src.ResourceLocation;
 
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
@@ -37,6 +38,7 @@ public class GuiTeleport extends GuiScreen
     private GuiValueField posX;
     private GuiValueField posY;
     private GuiValueField posZ;
+    protected static final ResourceLocation field_CP2_oi = new ResourceLocation("/CheatPackRessources/guiteleport.png");
 
     public GuiTeleport(GuiScreen guiscreen)
     {
@@ -88,7 +90,8 @@ public class GuiTeleport extends GuiScreen
     public void drawScreen(int i, int j, float f)
     {
         drawDefaultBackground();
-        mc.renderEngine.bindTexture("/CheatPackRessources/guiteleport.png");
+        mc.func_110434_K().func_110577_a(field_CP2_oi);
+        //mc.renderEngine.bindTexture("/CheatPackRessources/guiteleport.png");
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         
         int l = (width - 218) / 2;

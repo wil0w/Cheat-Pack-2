@@ -27,7 +27,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.src.Achievement;
 import net.minecraft.src.Enchantment;
 import net.minecraft.src.Entity;
@@ -37,6 +36,7 @@ import net.minecraft.src.FoodStats;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemPotion;
 import net.minecraft.src.ItemStack;
+import net.minecraft.src.Minecraft;
 import net.minecraft.src.NBTTagCompound;
 import net.minecraft.src.NBTTagList;
 import net.minecraft.src.PlayerControllerMP;
@@ -269,12 +269,13 @@ public class CBOriginal {
 	        entityliving.deathTime = 0;
 	        entityliving.hurtTime = 0;
 	        setHealth(entityliving, i);
+	    }
 
-	        if (entityliving instanceof EntityPlayer)
+	     /*   if (entityliving instanceof EntityPlayer)
 	        {
 	            ((EntityPlayer)entityliving).yOffset = 1.62F;
 	        }
-	    }
+	    }*/
 
 	    public void setFlying(EntityPlayer entityplayer, boolean flag)
 	    {

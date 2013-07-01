@@ -22,7 +22,7 @@
 
 package com.kodehawa.core;
 
-import net.minecraft.client.Minecraft;
+import net.minecraft.src.Minecraft;
 
 import org.lwjgl.input.Keyboard;
 

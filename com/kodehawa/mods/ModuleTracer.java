@@ -1,7 +1,7 @@
 package com.kodehawa.mods;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.src.EntityPlayer;
+import net.minecraft.src.Minecraft;
 
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL13;

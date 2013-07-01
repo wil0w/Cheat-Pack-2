@@ -32,6 +32,7 @@ import net.minecraft.src.GuiStats;
 import net.minecraft.src.InventoryBasic;
 import net.minecraft.src.InventoryPlayer;
 import net.minecraft.src.ItemStack;
+import net.minecraft.src.ResourceLocation;
 import net.minecraft.src.Slot;
 
 import org.lwjgl.input.Mouse;
@@ -46,6 +47,7 @@ public class GuiItemSelection extends GuiContainer
     private static boolean j;
     private static boolean k;
     private static InventoryBasic inventory = new InventoryBasic("tmp", k, 72);
+    protected static final ResourceLocation field_CP2_oi = new ResourceLocation("/gui/allitems.png");
     
 
     public GuiItemSelection(GuiScreen guiscreen, EntityPlayer entityplayer)
@@ -269,8 +271,9 @@ public class GuiItemSelection extends GuiContainer
     protected void drawGuiContainerBackgroundLayer(float f, int l, int i1)
     {
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-        mc.renderEngine.bindTexture("/gui/allitems.png");
-        
+        //mc.renderEngine.bindTexture("/gui/allitems.png");
+    	mc.func_110434_K().func_110577_a(field_CP2_oi);
+
         int k1 = guiLeft;
         int l1 = guiTop;
         drawTexturedModalRect(k1, l1, 0, 0, xSize, ySize);

@@ -1,6 +1,6 @@
 package com.kodehawa.mods;
 
-import net.minecraft.client.Minecraft;
+import net.minecraft.src.Minecraft;
 import net.minecraft.src.Packet11PlayerPosition;
 import net.minecraft.src.Packet12PlayerLook;
 import net.minecraft.src.Packet13PlayerLookMove;

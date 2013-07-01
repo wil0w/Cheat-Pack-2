@@ -1,7 +1,7 @@
 package com.kodehawa.mods;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.src.EntityClientPlayerMP;
+import net.minecraft.src.Minecraft;
 
 import com.kodehawa.CheatBase;
 import com.kodehawa.util.Tickable;
@@ -24,7 +24,7 @@ public class ModuleWaterwalk extends Mod implements Tickable {
 		if ( getPlayer( ).isWet( ) )
 		{
 			getPlayer( ).setSprinting( false );
-			getPlayer( ).jump( );
+			getPlayer( ).jump();
 			getPlayer( ).motionY /= 2;
 		}
 	}

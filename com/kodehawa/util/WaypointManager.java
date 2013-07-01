@@ -31,10 +31,10 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.src.EntityClientPlayerMP;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.INetworkManager;
+import net.minecraft.src.Minecraft;
 import net.minecraft.src.NetClientHandler;
 
 import com.kodehawa.CheatBase;

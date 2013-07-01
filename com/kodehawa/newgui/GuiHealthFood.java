@@ -25,6 +25,7 @@ package com.kodehawa.newgui;
 import net.minecraft.src.FoodStats;
 import net.minecraft.src.GuiButton;
 import net.minecraft.src.GuiScreen;
+import net.minecraft.src.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
@@ -39,6 +40,7 @@ public class GuiHealthFood extends GuiScreen
     private GuiValueField exhaustion;
     private static final int xSize = 218;
     private static final int ySize = 150;
+    protected static final ResourceLocation field_CP2_oi = new ResourceLocation("/CP2/resources/guihealthfood.png");
 
     public GuiHealthFood(GuiScreen guiscreen)
     {
@@ -52,7 +54,7 @@ public class GuiHealthFood extends GuiScreen
     {
         int i = (width - 218) / 2;
         int j = (height - 150) / 2;
-        healthlevel = new GuiValueField(new IntBuilder(CheatPack.coreBase.getPlayer().getHealth(), 20), fontRenderer, i + 9, j + 9 + 0, 200, 20);
+        //healthlevel = new GuiValueField(new IntBuilder(CheatPack.coreBase.getPlayer().getHealth(), 20), fontRenderer, i + 9, j + 9 + 0, 200, 20);
 
         try
         {
@@ -76,7 +78,8 @@ public class GuiHealthFood extends GuiScreen
     public void drawScreen(int i, int j, float f)
     {
         drawDefaultBackground();
-        this.mc.renderEngine.bindTexture("/CP2/resources/guihealthfood.png");
+        mc.func_110434_K().func_110577_a(field_CP2_oi);
+        //this.mc.renderEngine.bindTexture("/CP2/resources/guihealthfood.png");
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         int l = (width - 218) / 2;
         int i1 = (height - 150) / 2;
@@ -158,7 +161,7 @@ public class GuiHealthFood extends GuiScreen
 
     private void applyChanges()
     {
-        CheatPack.getBase(mc).setHealth(mc.thePlayer, healthlevel.toInt());
+        //CheatPack.getBase(mc).setHealth(mc.thePlayer, healthlevel.toInt());
         CheatPack.getBase(mc).setFoodStatValues(mc.thePlayer, foodlevel.toInt(), saturation.toFloat(), exhaustion.toFloat());
     }
 }

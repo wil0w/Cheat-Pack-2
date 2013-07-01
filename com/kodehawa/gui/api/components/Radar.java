@@ -2,7 +2,6 @@ package com.kodehawa.gui.api.components;
 
 import java.util.List;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.src.Entity;
 import net.minecraft.src.EntityAnimal;
 import net.minecraft.src.EntityBat;
@@ -13,6 +12,7 @@ import net.minecraft.src.EntitySlime;
 import net.minecraft.src.EntitySquid;
 import net.minecraft.src.EntityVillager;
 import net.minecraft.src.MathHelper;
+import net.minecraft.src.Minecraft;
 
 import org.lwjgl.opengl.GL11;
 

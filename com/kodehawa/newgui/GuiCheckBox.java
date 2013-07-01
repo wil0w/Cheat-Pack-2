@@ -23,8 +23,8 @@
 package com.kodehawa.newgui;
 
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.src.GuiButton;
+import net.minecraft.src.Minecraft;
 
 public class GuiCheckBox extends GuiButton
 {

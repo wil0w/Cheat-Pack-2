@@ -25,16 +25,10 @@ package com.kodehawa.util;
 import java.io.IOException;
 import java.util.Random;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.src.Entity;
-import net.minecraft.src.EntityFishHook;
 import net.minecraft.src.GuiScreen;
 import net.minecraft.src.IntegratedServer;
+import net.minecraft.src.Minecraft;
 import net.minecraft.src.NetClientHandler;
-import net.minecraft.src.Packet15Place;
-import net.minecraft.src.Packet28EntityVelocity;
-
-import com.kodehawa.CheatBase;
 
 public class CNetClientHandler extends NetClientHandler
 {

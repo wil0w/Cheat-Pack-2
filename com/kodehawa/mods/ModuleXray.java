@@ -22,7 +22,7 @@
 
 package com.kodehawa.mods;
 
-import net.minecraft.client.Minecraft;
+import net.minecraft.src.Minecraft;
 
 import com.kodehawa.CheatBase;
 import com.kodehawa.util.ChatColour;

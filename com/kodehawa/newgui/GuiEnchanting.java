@@ -27,7 +27,7 @@ import net.minecraft.src.GuiButton;
 import net.minecraft.src.GuiContainer;
 import net.minecraft.src.GuiScreen;
 import net.minecraft.src.ItemStack;
-import net.minecraft.src.StringTranslate;
+import net.minecraft.src.ResourceLocation;
 
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
@@ -42,6 +42,7 @@ public class GuiEnchanting extends GuiContainer
     private static GuiListControl enchantment;
     private static GuiValueField level;
     private boolean enchpossible;
+    public static final ResourceLocation field_CP2_oi = new ResourceLocation("/CP2/resources/guienchanting.png");
 
     public GuiEnchanting(GuiScreen guiscreen, ContainerEnchanting containerenchanting)
     {
@@ -66,7 +67,7 @@ public class GuiEnchanting extends GuiContainer
         int i = (width - xSize) / 2;
         int j = (height - ySize) / 2;
         level = new GuiValueField(new IntBuilder(127, -128, 127), fontRenderer, i + 9, j + 91 + 26, 200, 20);
-        buttonList.addAll(enchantment.initGui(0, 1, 2, StringTranslate.getInstance().translateKey(Enchantment.enchantmentsList[enchantment.index].getName()), i + 9, j + 91 + 0, 200));
+        //buttonList.addAll(enchantment.initGui(0, 1, 2, StringTranslate.getInstance().translateKey(Enchantment.enchantmentsList[enchantment.index].getName()), i + 9, j + 91 + 0, 200));
         buttonList.add(new GuiButton(200, i + 9, j + 91 + 52, 97, 20, CheatPack.translate("GuiPotionEffects.ButtonSet")));
         buttonList.add(new GuiButton(201, i + 112, j + 91 + 52, 97, 20, CheatPack.translate("GuiPotionEffects.ButtonUnset")));
     }
@@ -76,7 +77,7 @@ public class GuiEnchanting extends GuiContainer
      */
     public void drawScreen(int i, int j, float f)
     {
-        enchantment.setInfo(StringTranslate.getInstance().translateKey(Enchantment.enchantmentsList[enchantment.index].getName()));
+        //enchantment.setInfo(StringTranslate.getInstance().translateKey(Enchantment.enchantmentsList[enchantment.index].getName()));
         super.drawScreen(i, j, f);
     }
 
@@ -85,7 +86,9 @@ public class GuiEnchanting extends GuiContainer
      */
     public void drawGuiContainerBackgroundLayer(float f, int i, int j)
     {
-    	mc.renderEngine.bindTexture("/CP2/resources/guienchanting.png");
+        
+    	mc.func_110434_K().func_110577_a(field_CP2_oi);
+        //mc.renderEngine.bindTexture("/CP2/resources/guienchanting.png");
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         
         drawTexturedModalRect((width - xSize) / 2, (height - ySize) / 2, 0, 0, xSize, ySize);

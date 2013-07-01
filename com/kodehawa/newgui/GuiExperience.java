@@ -24,6 +24,7 @@ package com.kodehawa.newgui;
 
 import net.minecraft.src.GuiButton;
 import net.minecraft.src.GuiScreen;
+import net.minecraft.src.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
@@ -37,6 +38,7 @@ public class GuiExperience extends GuiScreen
     //private static GuiValueField score;
     private static final int xSize = 218;
     private static final int ySize = 124;
+    protected static final ResourceLocation field_CP2_oi = new ResourceLocation("/CP2/resources/guiexperience.png");
 
     public GuiExperience(GuiScreen guiscreen)
     {
@@ -62,7 +64,8 @@ public class GuiExperience extends GuiScreen
     public void drawScreen(int i, int j, float f)
     {
         drawDefaultBackground();
-        mc.renderEngine.bindTexture("/CP2/resources/guiexperience.png");
+    	mc.func_110434_K().func_110577_a(field_CP2_oi);
+        //mc.renderEngine.bindTexture("/CP2/resources/guiexperience.png");
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         int l = (width - 218) / 2;
         int i1 = (height - 124) / 2;

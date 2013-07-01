@@ -25,6 +25,7 @@ package com.kodehawa.newgui;
 
 import net.minecraft.src.GuiButton;
 import net.minecraft.src.GuiScreen;
+import net.minecraft.src.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
@@ -43,6 +44,7 @@ public class GuiMoreOptions extends GuiScreen
     private GuiCheckBox invulnerable;
     private GuiCheckBox killersight;
     private GuiCheckBox creative;
+    protected static final ResourceLocation field_CP2_oi = new ResourceLocation("/CP2/resources/guimoreoptions.png");
 
     public GuiMoreOptions(GuiScreen guiscreen)
     {
@@ -88,7 +90,8 @@ public class GuiMoreOptions extends GuiScreen
     public void drawScreen(int i, int j, float f)
     {
         drawDefaultBackground();
-        this.mc.renderEngine.bindTexture("/CP2/resources/guimoreoptions.png");
+        mc.func_110434_K().func_110577_a(field_CP2_oi);
+        //this.mc.renderEngine.bindTexture("/CP2/resources/guimoreoptions.png");
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         
         drawTexturedModalRect((width - 256) / 2, (height - 116) / 2, 0, 0, 256, 116);

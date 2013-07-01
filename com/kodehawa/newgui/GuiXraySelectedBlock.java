@@ -25,16 +25,16 @@ package com.kodehawa.newgui;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.src.Block;
 import net.minecraft.src.GuiButton;
 import net.minecraft.src.GuiScreen;
+import net.minecraft.src.Minecraft;
 
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 
-import com.kodehawa.mods.Vars;
 import com.kodehawa.mods.ModuleXray;
+import com.kodehawa.mods.Vars;
 
 //Julialy's GUI System.
 

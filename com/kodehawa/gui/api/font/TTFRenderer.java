@@ -1,6 +1,6 @@
 package com.kodehawa.gui.api.font;
 
-import net.minecraft.client.Minecraft;
+import net.minecraft.src.Minecraft;
 import net.minecraft.src.StringUtils;
 
 import org.lwjgl.opengl.GL11;

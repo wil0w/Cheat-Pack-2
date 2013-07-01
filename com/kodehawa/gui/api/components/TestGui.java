@@ -27,19 +27,20 @@ import java.util.ArrayList;
 import net.minecraft.src.Direction;
 import net.minecraft.src.GuiScreen;
 import net.minecraft.src.MathHelper;
-import net.minecraft.src.TcpConnection;
-import net.minecraft.src.Timer;
 
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
 import com.kodehawa.CheatBase;
-import com.kodehawa.CheatPack;
 import com.kodehawa.gui.api.render.ModGuiUtils;
-import com.kodehawa.gui.api.testing.TestEntityRenderer;
 import com.kodehawa.mods.Mod;
 
 public class TestGui extends GuiScreen {
+	
+	/**
+	 * @author godshawk
+	 */
+	//With a little revisions for match with CP2.
 	
 	public ArrayList<Frame> frames;
 	
@@ -53,7 +54,7 @@ public class TestGui extends GuiScreen {
 	
 	@Override
 	public boolean doesGuiPauseGame( ) {
-		return false;
+		return true;
 	}
 	
 	@Override
@@ -194,8 +195,6 @@ public class TestGui extends GuiScreen {
 				ModGuiUtils.drawHorizontalLine( this.x + 2, ( this.x + this.width ) - 2, ( this.y + this.oldHeight ) - 6, 2, 0xff550055 );
 				
 				CheatBase.instance.minecraft.fontRenderer.drawString( this.text, this.x + 3, this.y + 3, 0xff87b5ff );
-				// TTFRenderer.drawTTFString( Colony.guiFont, this.text, x + 2,
-				// y, 0x87b5ff );
 				
 				if ( minimized ) {
 					this.height = oldHeight;
@@ -222,36 +221,11 @@ public class TestGui extends GuiScreen {
 			}
 		};
 		
-		kFrame.setPinnable( true );
+		kFrame.setPinnable( false );
 		addFrame( kFrame );
 	}
 	
-	public void makeMinimapFrame( ) {
-		final TestMap map = new TestMap( );
-		
-		Frame mFrame = new Frame( CheatBase.instance, 380, 10, 134, 20, 0xff550055, 0xaa000000, "Minimap" ) {
-			
-			@Override
-			public void update( ) {
-				this.draw( );
-				this.oldHeight = 20;
-				map.posX = this.x + 3 + 48;
-				map.posY = this.y + this.oldHeight + 3 + 40;
-				map.tick( );
-				if ( !this.minimized ) {
-					this.height = 137;
-					map.render( );
-					ModGuiUtils.drawTriangle( CheatBase.instance.minecraft.thePlayer, ( x + 64 + 2 ) * 2, ( y + 64 + 13 ) * 2, 0xffff0000 );
-				} else {
-					this.height = this.oldHeight;
-				}
-			}
-			
-		};
-		
-		mFrame.setPinnable( true );
-		addFrame( mFrame );
-	}
+	
 	
 	public void makeRadarFrame( ) {
 		final Radar r = new Radar( );
@@ -268,7 +242,7 @@ public class TestGui extends GuiScreen {
 			}
 		};
 		
-		rFrame.setPinnable( true );
+		rFrame.setPinnable( false );
 		addFrame( rFrame );
 	}
 	
@@ -337,7 +311,7 @@ public class TestGui extends GuiScreen {
 			}
 		};
 		
-		aFrame.setPinnable( true );
+		aFrame.setPinnable( false );
 		addFrame( aFrame );
 	}
 	
@@ -364,7 +338,7 @@ public class TestGui extends GuiScreen {
 				dir = Direction.directions [ var24 ];
 				try {
 					children.clear( );
-					addChild( new Label( "User: " + CheatBase.instance.minecraft.thePlayer.username, 0xffffff ) );
+					//addChild( new Label( "User: " + CheatBase.instance.minecraft.thePlayer.username, 0xffffff ) );
 					addChild( new Label( "FPS: " + mc.debugFPS, 0xffffff ) );
 					addChild( new Label( "X: " + (int) CheatBase.instance.minecraft.thePlayer.posX, 0xffffff ) );
 					addChild( new Label( "Y: " + (int) CheatBase.instance.minecraft.thePlayer.posY, 0xffffff ) );
@@ -436,29 +410,13 @@ public class TestGui extends GuiScreen {
 				}
 			}
 		};
-		iFrame.setPinnable( true );
+		iFrame.setPinnable( false );
 		addFrame( iFrame );
 	}
 	
-	public void makeSpyFrame( ) {
-		final TestEntityRenderer ter = new TestEntityRenderer( CheatBase.instance.minecraft );
-		Frame sFrame = new Frame( CheatBase.instance, 370, 30, 320, 20, 0xff550055, 0xaa000000, "TestingFrame" ) {
-			@Override
-			public void update( ) {
-				this.draw( );
-				if ( !this.minimized ) {
-					//ter.updateCameraAndRender( 1, this.x, this.y, this.width, this.height );
-				}
-			}
-		};
-		
-		sFrame.setPinnable( true );
-		
-		addFrame( sFrame );
-	}
-	
+
 	public void makeTestFrame( ) {
-		Frame tFrame = new Frame( CheatBase.instance, 370, 30, 120, 20, 0xff550000, 0xaa000055, "Console" ) {
+		Frame tFrame = new Frame( CheatBase.instance, 130, 30, 120, 20, 0xff550000, 0xaa000055, "Console" ) {
 			@Override
 			public void update( ) {
 				this.draw( );
@@ -542,12 +500,9 @@ public class TestGui extends GuiScreen {
 	public void initFrames( ) {
 		makeWorldFrame( );
 		makePlayerFrame( );
-		//makeKeybindsFrame( );
-		makeMinimapFrame( );
 		makeRadarFrame( );
-		makeActivesFrame( );
+		//makeActivesFrame( );
 		makeInfoFrame( );
 		makeTestFrame( );
-		// makeSpyFrame( );
 	}
 }

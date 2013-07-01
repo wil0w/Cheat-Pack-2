@@ -28,12 +28,11 @@ import net.minecraft.src.GuiScreen;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.Potion;
 import net.minecraft.src.PotionEffect;
-import net.minecraft.src.StringTranslate;
+import net.minecraft.src.ResourceLocation;
 
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
-import com.kodehawa.CBOriginal;
 import com.kodehawa.CheatPack;
 
 public class GuiBrewing extends GuiContainer
@@ -45,6 +44,7 @@ public class GuiBrewing extends GuiContainer
     private static GuiValueField level;
     private static GuiValueField minutes;
     private static GuiValueField seconds;
+    public static final ResourceLocation field_CP2_oi = new ResourceLocation("/CP2/resources/guibrewing.png");
     private boolean brewpossible;
 
     public GuiBrewing(GuiScreen guiscreen, ContainerBrewing containerbrewing)
@@ -70,7 +70,7 @@ public class GuiBrewing extends GuiContainer
         Keyboard.enableRepeatEvents(true);
         int i = (width - xSize) / 2;
         int j = (height - ySize) / 2;
-        buttonList.addAll(effect.initGui(0, 1, 2, StringTranslate.getInstance().translateKey(Potion.potionTypes[effect.index].getName()), i + 9, j + 91 + 0, 200));
+        //buttonList.addAll(effect.initGui(0, 1, 2, StringTranslate.getInstance().translateKey(Potion.potionTypes[effect.index].getName()), i + 9, j + 91 + 0, 200));
         level = new GuiValueField(new IntBuilder(0, 0), fontRenderer, i + 9, j + 91 + 26, 200, 20);
         minutes = new GuiValueField(new IntBuilder(0, 0, 0, 0x1b4e46), fontRenderer, i + 9, j + 91 + 52, 200, 20);
         seconds = new GuiValueField(new IntBuilder(0, 0, 0, 59), fontRenderer, i + 9, j + 91 + 78, 200, 20);
@@ -84,7 +84,8 @@ public class GuiBrewing extends GuiContainer
     public void drawGuiContainerBackgroundLayer(float f, int i, int j)
     {
         drawDefaultBackground();
-        mc.renderEngine.bindTexture("/CheatPackRessources/guibrewing.png");
+        //Tanto lio para PONER UNA TEXTURA ENSERIO? ._.
+        mc.func_110434_K().func_110577_a(field_CP2_oi);
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         
         int l = (width - xSize) / 2;
@@ -100,7 +101,7 @@ public class GuiBrewing extends GuiContainer
      */
     public void drawScreen(int i, int j, float f)
     {
-        effect.setInfo(StringTranslate.getInstance().translateKey(Potion.potionTypes[effect.index].getName()));
+        //effect.setInfo(StringTranslate.getInstance().translateKey(Potion.potionTypes[effect.index].getName()));
         super.drawScreen(i, j, f);
     }
 

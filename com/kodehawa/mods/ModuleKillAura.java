@@ -22,9 +22,9 @@
 
 package com.kodehawa.mods;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.src.Entity;
 import net.minecraft.src.EntityLiving;
+import net.minecraft.src.Minecraft;
 
 import com.kodehawa.CheatBase;
 import com.kodehawa.util.ChatColour;
@@ -35,6 +35,7 @@ import com.kodehawa.util.Watcher;
 public class ModuleKillAura extends Mod implements Tickable {
 	
 	private final CheatBase cheatbase;
+	private EntityLiving elb;
 	
 	public ModuleKillAura( CheatBase rc, Minecraft mc ) {
 		super( Mods.KILLAURA );
@@ -78,7 +79,7 @@ public class ModuleKillAura extends Mod implements Tickable {
 			}
 			
 			if ( ( minecraft.thePlayer.getDistanceSqToEntity( ent ) <= 36D ) && !ent.isDead && minecraft.thePlayer.canEntityBeSeen( ent ) ) {
-				minecraft.thePlayer.faceEntity( ent, 100F, 100F );
+				elb.faceEntity( ent, 100F, 100F );
 				minecraft.playerController.attackEntity( minecraft.thePlayer, ent );
 				minecraft.thePlayer.swingItem( );
 			}

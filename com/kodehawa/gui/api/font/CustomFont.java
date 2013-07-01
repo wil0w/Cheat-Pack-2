@@ -12,8 +12,8 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.InputStream;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.src.Gui;
+import net.minecraft.src.Minecraft;
 
 import org.lwjgl.opengl.GL11;
 
@@ -92,7 +92,7 @@ public class CustomFont
 			}
 		}
 		
-		texID = minecraft.renderEngine.allocateAndSetupTexture( bufferedimage );
+		//texID = minecraft.renderEngine.allocateAndSetupTexture( bufferedimage );
 	}
 	
 	public CustomFont( Minecraft mine, Font f, int i, int j )
@@ -133,7 +133,7 @@ public class CustomFont
 		
 		try
 		{
-			this.texID = mine.renderEngine.allocateAndSetupTexture( bufferedImage );
+			//this.texID = mine.renderEngine.allocateAndSetupTexture( bufferedImage );
 		} catch ( NullPointerException npe )
 		{
 			npe.printStackTrace( );

@@ -25,10 +25,10 @@ package com.kodehawa.console;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.src.Enchantment;
 import net.minecraft.src.EntityClientPlayerMP;
 import net.minecraft.src.ItemStack;
+import net.minecraft.src.Minecraft;
 import net.minecraft.src.Packet;
 import net.minecraft.src.StringTranslate;
 
@@ -62,17 +62,10 @@ public class Enchant implements BaseCommand {
 			}
 			
 			String en = e.getName( );
-			
-			if ( en != null ) {
-				String ename = StringTranslate.getInstance( ).translateKey( en );
-				if ( ename.replaceAll( " ", "" ).equalsIgnoreCase( ench ) ) {
-					i.addEnchantment( e, level );
-				}
-			}
 		}
-		
-		this.writeStack( i );
 	}
+			
+
 	
 	private void writeStack( ItemStack i ) {
 		ByteArrayOutputStream bytestream = new ByteArrayOutputStream( );

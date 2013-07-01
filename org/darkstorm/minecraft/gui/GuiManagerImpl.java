@@ -30,7 +30,7 @@ import java.awt.Rectangle;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import net.minecraft.client.Minecraft;
+import net.minecraft.src.Minecraft;
 
 import org.darkstorm.minecraft.gui.component.Button;
 import org.darkstorm.minecraft.gui.component.Component;

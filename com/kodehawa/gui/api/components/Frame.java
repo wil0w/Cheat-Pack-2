@@ -29,6 +29,9 @@ import com.kodehawa.gui.api.render.ModGuiUtils;
 
 public class Frame extends Item {
 	
+	/**
+	 * @author godshawk
+	 */
 	
 	public ArrayList<Item> toBeAdded = new ArrayList<Item>( );
 	public ArrayList<Item> toBeRemoved = new ArrayList<Item>( );
@@ -135,8 +138,6 @@ public class Frame extends Item {
 	@Override
 	public void onClick( int x, int y ) {
 		// TODO Auto-generated method stub
-		// ModGuiUtils.drawFilledCircle( ( x + width ) - 8, y + 7, 2.5,
-		// 0xffaa0033 );
 		
 		if ( this.clickedInside( x, y ) ) {
 			if ( x >= ( ( this.x + this.width ) - 8 - 2.5 ) ) {

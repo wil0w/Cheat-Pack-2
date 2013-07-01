@@ -1,6 +1,6 @@
 package com.kodehawa.mods;
 
-import net.minecraft.client.Minecraft;
+import net.minecraft.src.Minecraft;
 
 import com.kodehawa.CheatBase;
 import com.kodehawa.util.ChatColour;
@@ -17,7 +17,7 @@ public class ModuleFasterWalk extends Mod implements Tickable {
 	
 	@Override
 	public void tick() {
-		mc.thePlayer.capabilities.setWalkSpeed(0.2F);
+		mc.thePlayer.capabilities.setPlayerWalkSpeed(0.2F);
 		
 	}
 
@@ -31,7 +31,7 @@ public class ModuleFasterWalk extends Mod implements Tickable {
 	@Override
 	public void onDisable() {
 		cb.removeFromTick( this );
-		mc.thePlayer.capabilities.setWalkSpeed(0.1F);
+		mc.thePlayer.capabilities.setPlayerWalkSpeed(0.1F);
 		cb.getUtils( ).addChatMessage( getActive( ) );
 	}
 

@@ -22,12 +22,16 @@
 
 package com.kodehawa.gui;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.src.GuiIngame;
+import net.minecraft.src.Minecraft;
 
 import org.lwjgl.opengl.GL11;
 
 import com.kodehawa.CheatBase;
+
+/**
+ * @author godshawk
+ */
 
 public class CGuiIngame extends GuiIngame {
 	
