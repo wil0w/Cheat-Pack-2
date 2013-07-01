@@ -40,7 +40,7 @@ import com.kodehawa.core.KeyManager;
 import com.kodehawa.core.TranslationWritter;
 import com.kodehawa.gui.CGuiIngame;
 import com.kodehawa.gui.api.components.Frame;
-import com.kodehawa.gui.api.components.TestGui;
+import com.kodehawa.gui.api.components.ModuleGui;
 import com.kodehawa.gui.api.font.CustomFont;
 import com.kodehawa.gui.api.testing.AlertHandler;
 import com.kodehawa.mods.Mod;
@@ -61,10 +61,10 @@ public class CheatBase {
     public static boolean truelyinstalled = true;
     long now;
     long then;
-    public String modName = "Cheat Pack 2";
+    public String modName = "Cheating Essentials";
     public String mcversion = "Minecraft 1.5.2";
-    public String modversion = "Cheat Pack 2.6";
-    public String build = "Build 3 - 30.06.2013";
+    public String modversion = "Cheating Essentials 2.6";
+    public String build = "Build 4 - 01.07.2013";
 
     public CheatBase(Minecraft mc) {
         instance = this;
@@ -83,7 +83,7 @@ public class CheatBase {
 
         keyShit = new HashMap<Mod, Integer>();
         mmanager = new ModManager(this);
-        modgui = new TestGui();
+        modgui = new ModuleGui();
         kmanager = new KeyManager();
         translations = new TranslationWritter();
         femanager = new FrenemyManager();
@@ -106,7 +106,7 @@ public class CheatBase {
             field.setAccessible(true);
             return field.get(obj);
         } catch (IllegalAccessException illegalaccessexception) {
-            chk.throwException("[Cheat Pack 2] [Reflector] Failed to get a private value!", illegalaccessexception);
+            chk.throwException("[Cheating Essentials] [Reflector] Failed to get a private value!", illegalaccessexception);
         }
 
         return null;
@@ -118,7 +118,7 @@ public class CheatBase {
             method.setAccessible(true);
             return method.invoke(obj);
         } catch (IllegalAccessException illegalaccessexception) {
-            chk.throwException("[Cheat Pack 2] [Reflector] Failed to get a private method!", illegalaccessexception);
+            chk.throwException("[Cheating Essentials] [Reflector] Failed to get a private method!", illegalaccessexception);
         }
         return null;
     }
@@ -207,7 +207,7 @@ public class CheatBase {
         }
         return false;
     }
-    public final static ILogAgent LogAgent = new net.minecraft.src.LogAgent("Cheat Pack 2", " [Cheat Pack 2] [CB]", (new File(field_CP2_ol, "output-cient.log")).getAbsolutePath());
+    public final static ILogAgent LogAgent = new net.minecraft.src.LogAgent("Cheat Pack 2", " [Cheating Essentials] [CB]", (new File(field_CP2_ol, "output-cient.log")).getAbsolutePath());
     public CheckKey ck;
     public Utils utils;
     public static Minecraft minecraft;
@@ -218,7 +218,7 @@ public class CheatBase {
     public KeyManager kmanager;
     public TranslationWritter translations;
     public FrenemyManager femanager;
-    public TestGui modgui;
+    public ModuleGui modgui;
     public static boolean hasModLoader;
     public AlertHandler amanager;
     public WaypointManager wmanager;

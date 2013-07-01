@@ -30,8 +30,7 @@ import javax.swing.Timer;
 import com.kodehawa.gui.api.render.ModGuiUtils;
 
 public class Alert implements ActionListener {
-	Timer tm = new Timer( 5, this ); // Timer(DelayInMilliseconds,
-									 // ActionListener);
+	Timer tm = new Timer( 5, this ); 
 	int y = 0, vely = 1;
 	int height = ModGuiUtils.getHeight( );
 	

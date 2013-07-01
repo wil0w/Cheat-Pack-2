@@ -37,7 +37,7 @@ public class ModManager {
         playerMods = new ArrayList<Mod>();
 
         // World mods
-        addWMod(new ModuleAutoFish(c, c.minecraft));
+        
         addWMod(new ModuleFastPlace(c, c.minecraft));
         addWMod(new ModuleFullbright(c, c.minecraft));
         addWMod(new ModuleWaterwalk(c, c.minecraft));
@@ -46,12 +46,12 @@ public class ModManager {
 
 
         // Player mods
+        
         addPMod(new ModuleFly(c, c.minecraft));
         addPMod(new ModuleKillAura(c, c.minecraft));
         addPMod(new ModuleInvulnerable(c, c.minecraft));
         addPMod(new ModuleNoFall(c, c.minecraft));
         addPMod(new ModuleSprint(c, c.minecraft));
-        addPMod(new ModuleTracer(c, c.minecraft));
         addPMod(new ModuleFasterWalk(c, c.minecraft));
         addPMod(new ModuleAutoHealth(c, c.minecraft));
 

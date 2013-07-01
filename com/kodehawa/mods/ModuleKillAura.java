@@ -79,7 +79,7 @@ public class ModuleKillAura extends Mod implements Tickable {
 			}
 			
 			if ( ( minecraft.thePlayer.getDistanceSqToEntity( ent ) <= 36D ) && !ent.isDead && minecraft.thePlayer.canEntityBeSeen( ent ) ) {
-				elb.faceEntity( ent, 100F, 100F );
+				//elb.faceEntity( ent, 100F, 100F );
 				minecraft.playerController.attackEntity( minecraft.thePlayer, ent );
 				minecraft.thePlayer.swingItem( );
 			}
