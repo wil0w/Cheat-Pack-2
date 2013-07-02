@@ -399,7 +399,7 @@ public final class CheatPack
         }
     }
 
-    public Minecraft getMinecraft()
+    public Minecraft getMinecraft( )
     {
         Minecraft minecraft = null;
 
@@ -452,7 +452,7 @@ public final class CheatPack
         }
         else
         {
-            minecraft.displayUnexpectedThrowable(new UnexpectedThrowable((new StringBuilder()).append("Cheat Pack - ").append(s).toString(), throwable));
+            //minecraft.displayUnexpectedThrowable(new UnexpectedThrowable((new StringBuilder()).append("Cheat Pack - ").append(s).toString(), throwable));
             return;
         }
     }
@@ -473,11 +473,10 @@ public final class CheatPack
    public static void init()
     {
         coreBase = new CheatPack();
-        //No more needed
-       // System.out.println("<<< Cheat Pack 2 - Init System >>>");
-       // System.out.println("<<< Cheat Pack 2 GUI Init System >>>");
+        System.out.println("Cheating Essentials: Corebase Started");
+        System.out.println("<<< Cheating Essentials - Finished Base Initialization >>>");
         checkEnvironment();
-        loadDimensions();
+        //loadDimensions();
         loadSettings();
        
 

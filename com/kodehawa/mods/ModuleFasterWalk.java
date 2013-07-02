@@ -18,7 +18,7 @@ public class ModuleFasterWalk extends Mod implements Tickable {
 	
 	@Override
 	public void tick() {
-		mc.thePlayer.capabilities.setPlayerWalkSpeed(0.2F);
+		mc.thePlayer.capabilities.setPlayerWalkSpeed(0.05F);
 }
 
 	@Override

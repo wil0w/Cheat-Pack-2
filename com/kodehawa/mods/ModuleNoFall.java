@@ -1,5 +1,6 @@
 package com.kodehawa.mods;
 
+import net.minecraft.src.EntityClientPlayerMP;
 import net.minecraft.src.Minecraft;
 import net.minecraft.src.Packet11PlayerPosition;
 import net.minecraft.src.Packet12PlayerLook;
@@ -12,6 +13,7 @@ public class ModuleNoFall extends Mod implements Tickable {
 	
 	private final CheatBase cheatbase;
 	
+	
 	public ModuleNoFall( CheatBase cb, Minecraft m ) {
 		super( Mods.NOFALL );
 		cheatbase = cb;
@@ -20,26 +22,22 @@ public class ModuleNoFall extends Mod implements Tickable {
 	@Override
 	public void tick( ) {
 		// TODO Auto-generated method stub
-		Packet11PlayerPosition.onGround = true;
-		Packet12PlayerLook.onGround = true;
-		Packet13PlayerLookMove.onGround = true;
-	}
+		EntityClientPlayerMP ep = CheatBase.getInstance().getWrapper.getMinecraft( ).thePlayer;
+        ep.sendQueue.addToSendQueue( new Packet13PlayerLookMove( ep.motionX, -999.0D, -999.0D, ep.motionZ,
+                ep.rotationYaw, ep.rotationPitch, !ep.onGround ) );
+    }
+	
 	
 	@Override
 	public void onEnable( ) {
 		cheatbase.addToTick( this );
-		Packet11PlayerPosition.onGround = true;
-		Packet12PlayerLook.onGround = true;
-		Packet13PlayerLookMove.onGround = true;
-		cheatbase.getUtils( ).addChatMessage( getActive( ) );
+	    cheatbase.getUtils( ).addChatMessage( getActive( ) );
+	    cheatbase.getUtils().addChatMessage("Fall damage? What fall damage?");
 	}
 	
 	@Override
 	public void onDisable( ) {
 		cheatbase.removeFromTick( this );
-		Packet11PlayerPosition.onGround = false;
-		Packet12PlayerLook.onGround = false;
-		Packet13PlayerLookMove.onGround = false;
 		cheatbase.getUtils( ).addChatMessage( getActive( ) );
 	}
 	

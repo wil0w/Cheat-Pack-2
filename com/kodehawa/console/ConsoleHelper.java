@@ -21,10 +21,7 @@ public class ConsoleHelper {
 		addCommand( new AddEnemy( ) );
 		//Reload the whole mod.
 		addCommand( new Reloader( ) );
-		addCommand( new Spy( ) );
-		addCommand( new SpyList( ) );
-		// Making GUI for this.
-		//addCommand( new XrayAdd( ) );
+		
 	}
 	
 	public void addCommand( BaseCommand cmd ) {

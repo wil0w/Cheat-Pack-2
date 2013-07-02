@@ -32,6 +32,10 @@ import java.util.Map;
 import net.minecraft.src.Gui;
 import net.minecraft.src.ILogAgent;
 import net.minecraft.src.Minecraft;
+import net.minecraft.src.Packet10Flying;
+import net.minecraft.src.Packet11PlayerPosition;
+import net.minecraft.src.Packet12PlayerLook;
+import net.minecraft.src.Packet13PlayerLookMove;
 
 import org.lwjgl.input.Keyboard;
 
@@ -51,10 +55,13 @@ import com.kodehawa.util.Console;
 import com.kodehawa.util.Tickable;
 import com.kodehawa.util.Utils;
 import com.kodehawa.util.WaypointManager;
+import com.kodehawa.util.wrapper.Wrapper;
 
 public class CheatBase {
 
     public static CheatBase instance;
+    private static Minecraft mc;
+    public final static Wrapper getWrapper = new Wrapper( );
     public CheatPack ck6;
     public static File field_CP2_ol;
     public static CustomFont guiFont;
@@ -64,23 +71,26 @@ public class CheatBase {
     public String modName = "Cheating Essentials";
     public String mcversion = "Minecraft 1.5.2";
     public String modversion = "Cheating Essentials 2.6";
-    public String build = "Build 4 - 01.07.2013";
+    public String build = "Build 5 - 01.07.2013";
+    public Packet11PlayerPosition p11;
+	public Packet10Flying p10;
+	public Packet12PlayerLook p12;
+	public Packet13PlayerLookMove p13;
 
     public CheatBase(Minecraft mc) {
         instance = this;
         minecraft = mc;
         ck = new CheckKey(mc);
-        //ck6.init();
+        ck6.init();
         init();
     }
     public static ArrayList<String> enabledMods = new ArrayList<String>();
 
     public void init() {
         utils = new Utils(minecraft);
-
+        mc = Minecraft.getMinecraft( );
         now = System.currentTimeMillis();
         then = now + 250;
-
         keyShit = new HashMap<Mod, Integer>();
         mmanager = new ModManager(this);
         modgui = new ModuleGui();
@@ -124,6 +134,12 @@ public class CheatBase {
     }
 
     //Initialization
+    
+    public static CheatBase getInstance()
+    {
+    	return instance;
+    }
+    
     public void reload() {
         for (Mod m : mmanager.mods) {
             m.turnOff();
@@ -207,8 +223,11 @@ public class CheatBase {
         }
         return false;
     }
+    
+    
+    
     public final static ILogAgent LogAgent = new net.minecraft.src.LogAgent("Cheat Pack 2", " [Cheating Essentials] [CB]", (new File(field_CP2_ol, "output-cient.log")).getAbsolutePath());
-    public CheckKey ck;
+	public CheckKey ck;
     public Utils utils;
     public static Minecraft minecraft;
     public ArrayList<Tickable> tickables = new ArrayList<Tickable>();
@@ -227,4 +246,5 @@ public class CheatBase {
     public static CheatPack chk;
     public static CheatBase cb;
     public GuiItemSelection guicheat;
+	
 }
