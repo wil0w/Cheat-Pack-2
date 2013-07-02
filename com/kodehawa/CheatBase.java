@@ -66,17 +66,16 @@ public class CheatBase {
     public static File field_CP2_ol;
     public static CustomFont guiFont;
     public static boolean truelyinstalled = true;
-    long now;
-    long then;
     public String modName = "Cheating Essentials";
     public String mcversion = "Minecraft 1.5.2";
     public String modversion = "Cheating Essentials 2.6";
     public String build = "Build 5 - 01.07.2013";
-    public Packet11PlayerPosition p11;
-	public Packet10Flying p10;
-	public Packet12PlayerLook p12;
-	public Packet13PlayerLookMove p13;
-
+    
+    
+    long now;
+    long then;
+    
+    
     public CheatBase(Minecraft mc) {
         instance = this;
         minecraft = mc;
