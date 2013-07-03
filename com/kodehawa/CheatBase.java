@@ -1,24 +1,14 @@
-/*
- * Copyright (c) 2013 David Rubio
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
+/**
+ * Base Classes Modified:
+ * 
+ * @Block.java
+ * @GuiIngame.java
+ * @Minecraft.java
+ * @EntityPlayer.java
+ * 
  */
+
+
 package com.kodehawa;
 
 import java.io.File;
@@ -32,10 +22,6 @@ import java.util.Map;
 import net.minecraft.src.Gui;
 import net.minecraft.src.ILogAgent;
 import net.minecraft.src.Minecraft;
-import net.minecraft.src.Packet10Flying;
-import net.minecraft.src.Packet11PlayerPosition;
-import net.minecraft.src.Packet12PlayerLook;
-import net.minecraft.src.Packet13PlayerLookMove;
 
 import org.lwjgl.input.Keyboard;
 
@@ -49,7 +35,6 @@ import com.kodehawa.gui.api.font.CustomFont;
 import com.kodehawa.gui.api.testing.AlertHandler;
 import com.kodehawa.mods.Mod;
 import com.kodehawa.mods.ModManager;
-import com.kodehawa.newgui.GuiItemSelection;
 import com.kodehawa.players.FrenemyManager;
 import com.kodehawa.util.Console;
 import com.kodehawa.util.Tickable;
@@ -58,22 +43,70 @@ import com.kodehawa.util.WaypointManager;
 import com.kodehawa.util.wrapper.Wrapper;
 
 public class CheatBase {
-
+	
+	/**
+	 *  Throws the instance of the mod. Prevents NullPointerException's.
+	 */
+	
     public static CheatBase instance;
+    
+    /**
+     * Minecraft reference.
+     */
+    
     private static Minecraft mc;
+    
+    /**
+     * Get wrapper for some methods and reflections.
+     */
+    
     public final static Wrapper getWrapper = new Wrapper( );
+    
+    /**
+     * Get the main Corebase.
+     */
+    
     public CheatPack ck6;
+    
+    /**
+     * Field for MC 1.6
+     */
+   
     public static File field_CP2_ol;
+    
+    /**
+     * @NOTUSED Custom Font renderer.
+     */
+    
     public static CustomFont guiFont;
+    
+    /**
+     * Generic random thing that it's really not used.
+     */
+    
     public static boolean truelyinstalled = true;
+    
+    /**
+     * Get variables for console printing.
+     */
+    
     public String modName = "Cheating Essentials";
     public String mcversion = "Minecraft 1.5.2";
     public String modversion = "Cheating Essentials 2.6";
     public String build = "Build 5 - 01.07.2013";
     
+    /**
+     * I don't remember for what it's this. I'm too lazy.
+     */
+    
     
     long now;
     long then;
+    
+    
+    /**
+     * Main method.
+     */
     
     
     public CheatBase(Minecraft mc) {
@@ -85,6 +118,10 @@ public class CheatBase {
     }
     public static ArrayList<String> enabledMods = new ArrayList<String>();
 
+    /**
+     * Init the main mod class (com.kodehawa.CheatBase.java)
+     */
+    
     public void init() {
         utils = new Utils(minecraft);
         mc = Minecraft.getMinecraft( );
@@ -108,7 +145,12 @@ public class CheatBase {
 
     }
 
-    //Reflector 
+    
+    /** 
+     * Get a Callable reflector mains for Corebase (com.kodehawa.Cheatxx) xx = Anything
+     * @Reflection Main
+     */
+    
     public static Object getPrivateValue(Class class1, Object obj, String s) throws IllegalArgumentException, SecurityException, NoSuchFieldException {
         try {
             Field field = class1.getDeclaredField(s);
@@ -120,7 +162,7 @@ public class CheatBase {
 
         return null;
     }
-
+    
     public static Object getPrivateMethod(Class class1, Object obj, String s) throws IllegalAccessException, InvocationTargetException, NoSuchMethodException, SecurityException {
         try {
             Method method = class1.getDeclaredMethod(s);
@@ -132,12 +174,20 @@ public class CheatBase {
         return null;
     }
 
-    //Initialization
+    /**
+     * Get the mod main instance
+     * @return instance
+     */
     
     public static CheatBase getInstance()
     {
     	return instance;
     }
+    
+    
+    /**
+     * Reload charged mods
+     */
     
     public void reload() {
         for (Mod m : mmanager.mods) {
@@ -146,6 +196,12 @@ public class CheatBase {
         init();
     }
 
+    
+    /**
+     * Main method for GUI.
+     */
+   
+    
     public void tick() {
         for (Tickable tick : tickables) {
             tick.tick();
@@ -163,10 +219,19 @@ public class CheatBase {
         updatePinnedFrames();
     }
 
-    //Apetecan
+    
+    /**
+     * Get the mod utils (com.kodehawa.util)
+     * @return utils
+     */
+   
     public Utils getUtils() {
         return utils;
     }
+    
+    /**
+     * @NOTUSED Update pinned frames.
+     */
 
     public void updatePinnedFrames() {
         if ((minecraft.currentScreen == null) || (minecraft.currentScreen == (Gui) minecraft.ingameGUI)) {
@@ -213,6 +278,12 @@ public class CheatBase {
             }
         }
     }
+    
+    /**
+     * Class finder. Pretty simple.
+     * @param className
+     * @method Reflection
+     */
 
     public boolean classExists(String className) {
         try {
@@ -223,6 +294,10 @@ public class CheatBase {
         return false;
     }
     
+    
+    /**
+     * References.
+     */
     
     
     public final static ILogAgent LogAgent = new net.minecraft.src.LogAgent("Cheat Pack 2", " [Cheating Essentials] [CB]", (new File(field_CP2_ol, "output-cient.log")).getAbsolutePath());
@@ -244,6 +319,5 @@ public class CheatBase {
     public CheatBase cheatbase;
     public static CheatPack chk;
     public static CheatBase cb;
-    public GuiItemSelection guicheat;
 	
 }
