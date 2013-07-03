@@ -30,12 +30,13 @@ import net.minecraft.src.EntityClientPlayerMP;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.Minecraft;
 import net.minecraft.src.Packet;
-import net.minecraft.src.StringTranslate;
 
+import com.kodehawa.CheatBase;
 import com.kodehawa.util.ChatColour;
 
 public class Enchant implements BaseCommand {
 	String endres = "";
+	private Minecraft mc;
 	
 	@Override
 	public void onRun( String[ ] cmd ) {
@@ -54,18 +55,25 @@ public class Enchant implements BaseCommand {
 		// TODO Auto-generated method stub
 		return new String( ChatColour.RED + "Usage: " + ChatColour.AQUA + this.getName( ) + " <enchantment> <level>" );
 	}
-	
-	private void enchantStack( ItemStack i, String ench, int level ) {
-		for ( Enchantment e : Enchantment.enchantmentsList ) {
-			if ( e == null ) {
-				continue;
-			}
-			
-			String en = e.getName( );
-		}
-	}
-			
 
+	private void enchantStack( ItemStack i, String ench, int level ) {
+        for( Enchantment e : Enchantment.enchantmentsList ) {
+            if( e == null ) {
+                continue;
+            }
+            
+            String en = e.getName( );
+            
+            if( en != null ) {
+                String ename = mc.func_135016_M().func_135041_c( ).func_135034_a( );
+                if( ename.replaceAll( " ", "" ).equalsIgnoreCase( ench ) ) {
+                    i.addEnchantment( e, level );
+                }
+            }
+        }
+        
+        this.writeStack( i );
+    }
 	
 	private void writeStack( ItemStack i ) {
 		ByteArrayOutputStream bytestream = new ByteArrayOutputStream( );
@@ -85,7 +93,7 @@ public class Enchant implements BaseCommand {
 	}
 	
 	String output( String[ ] cmd ) {
-		try {
+		/*try {
 			EntityClientPlayerMP thePlayer = Minecraft.getMinecraft( ).thePlayer;
 			{
 				ItemStack stack = thePlayer.inventory.getCurrentItem( );
@@ -95,7 +103,18 @@ public class Enchant implements BaseCommand {
 		}
 	      catch ( Exception e ) {
 			return showHelp( );
-		}
+		}*/
+		try {
+            EntityClientPlayerMP thePlayer = CheatBase.getInstance( ).getWrapper.getMinecraft( ).thePlayer;
+                ItemStack stack = thePlayer.inventory.getCurrentItem( );
+                enchantStack( stack, cmd[ 1 ], Integer.parseInt( cmd[ 2 ] ) );
+                return "Item " + stack.getItemName( ) + " enchanted with a level " + cmd[ 2 ] + " " + cmd[ 1 ]
+                        + " enchantment!";
+            } 
+		catch( Exception e ) {
+            e.printStackTrace( );
+            return "Oh teh noes! The enchantment failed! See the console for more info...";
+        }
 	}
 }
 

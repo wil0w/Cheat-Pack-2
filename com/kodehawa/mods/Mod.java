@@ -1,4 +1,6 @@
-
+/**
+ * I've does my most because I can  *Portal reference :)
+ */
 
 package com.kodehawa.mods;
 
@@ -46,6 +48,7 @@ public abstract class Mod {
 	public abstract void onDisable( );
 	
 	public String name;
+	//Make booleans! Ready go! *Ehmm... you forgot the static okay no xD
 	private boolean active = false;
 	public int keyBind;
 }

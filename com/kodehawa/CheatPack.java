@@ -32,7 +32,7 @@ public final class CheatPack
     public static boolean pausegame;
     public static boolean disablefov;
     public static boolean instantdrop;
-    public File file;
+    public static File field_CE_oi;
     public static boolean instantxp;
     public static boolean flying;
     public static boolean invulnerable;
@@ -46,7 +46,7 @@ public final class CheatPack
     public static int escapeKey = Keyboard.KEY_ESCAPE;
     public static int setKey = 28;
     public static int unsetKey = 211;
-    public final File settings = new File(file, "/CheatPackSettings.dat");
+    public final File settings = new File(field_CE_oi, "/CheatPackSettings.dat");
     public final Properties transTable = new Properties();
     public final Properties cfgTable = new Properties();
     
@@ -58,13 +58,17 @@ public final class CheatPack
     	
     }
     
+    /**
+     * Really this code does nothing important :)
+     */
+    
     protected static void checkEnvironment()
     {
         hasModLoader = coreBase.classExists("ModLoader");
 
         if (hasModLoader)
         {
-            System.out.println("Cheat Pack 2: ModLoader Initialization Complete. All mods OK.");
+            System.out.println("Cheating Essentials: ModLoader Initialization Complete. All mods OK.");
         }}
     
       

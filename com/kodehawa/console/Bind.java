@@ -68,11 +68,11 @@ public class Bind implements BaseCommand {
 			if ( cmd.length <= 1 ) {
 				throw new NullPointerException( );
 			} else if ( cmd.length == 2 ) {
-				Mod m = CheatBase.mmanager.getHackByName( cmd [ 1 ] );
+				Mod m = CheatBase.mmanager.getCheatsByName( cmd [ 1 ] );
 				CheatBase.instance.kmanager.writeNewKeybinds( );
 				return new String( ChatColour.AQUA + m.name + " unbound!" );
 			} else if ( cmd.length == 3 ) {
-				Mod m = CheatBase.mmanager.getHackByName( cmd [ 1 ] );
+				Mod m = CheatBase.mmanager.getCheatsByName( cmd [ 1 ] );
 				m.keyBind = Keyboard.getKeyIndex( cmd [ 2 ].toUpperCase( ) );
 				CheatBase.instance.kmanager.writeNewKeybinds( );
 				return new String( ChatColour.AQUA + m.name + " bound to " + cmd [ 2 ] + "!" );

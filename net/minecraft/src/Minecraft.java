@@ -222,7 +222,7 @@ public class Minecraft implements IPlayerUsage
         StatList.nopInit();
         
         compat = new HashMap<String, Integer>();
-        System.out.println("Cheat Pack 2: Pre-Initialization Event");
+        System.out.println("Cheating Essentials: Pre-Initialization Event");
         //cheatbase.tick();
         checkCompatibility("ModLoader");
         
@@ -2426,12 +2426,12 @@ private void checkCompatibility(String mod){
           compat.put(mod, 0);
           return;
       }
-      System.out.println("Cheating Essentials: Detected "+mod+" trying to enable compatibility....");
+      System.out.println("Cheating Essentials: Detected "+mod+", trying to enable compatibility....");
       System.out.println("Cheating Essentials: Enabled "+mod+" compatibility");
       compat.put(mod, 2);
       return;
   }
-  System.out.println("Cheating Essentials: Detected "+mod+" trying to enable compatiblity..... ");
+  System.out.println("Cheating Essentials: Detected "+mod+", trying to enable compatiblity..... ");
   System.out.println("Cheating Essentials: Enabled "+mod+" compatibility");
   compat.put(mod, 1);
 }}

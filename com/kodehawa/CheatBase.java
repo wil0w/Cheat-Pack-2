@@ -5,9 +5,12 @@
  * @GuiIngame.java
  * @Minecraft.java
  * @EntityPlayer.java
- * 
  */
 
+/**
+ * I does the most because I can (8) lalalalala
+ * @PlayPortalNow
+ */
 
 package com.kodehawa;
 
@@ -66,7 +69,7 @@ public class CheatBase {
      * Get the main Corebase.
      */
     
-    public CheatPack ck6;
+    public static CheatPack ck6;
     
     /**
      * Field for MC 1.6
@@ -119,7 +122,7 @@ public class CheatBase {
     public static ArrayList<String> enabledMods = new ArrayList<String>();
 
     /**
-     * Init the main mod class (com.kodehawa.CheatBase.java)
+     * Init the main mod class (com.kodehawa.CheatBase.java and the "ck6" or CheatPack *Corebase*)
      */
     
     public void init() {
@@ -134,7 +137,7 @@ public class CheatBase {
         translations = new TranslationWritter();
         femanager = new FrenemyManager();
         console = new Console();
-        chk = new CheatPack();
+        ck6 = new CheatPack();
         LogAgent.logInfo("Initialization Complete");
         LogAgent.logInfo("SSP/SMP mode enabled.");
         guiFont = new CustomFont(minecraft, "Bauhaus", 20);
@@ -157,7 +160,7 @@ public class CheatBase {
             field.setAccessible(true);
             return field.get(obj);
         } catch (IllegalAccessException illegalaccessexception) {
-            chk.throwException("[Cheating Essentials] [Reflector] Failed to get a private value!", illegalaccessexception);
+            ck6.throwException("[Cheating Essentials] [Reflector] Failed to get a private value!", illegalaccessexception);
         }
 
         return null;
@@ -169,7 +172,7 @@ public class CheatBase {
             method.setAccessible(true);
             return method.invoke(obj);
         } catch (IllegalAccessException illegalaccessexception) {
-            chk.throwException("[Cheating Essentials] [Reflector] Failed to get a private method!", illegalaccessexception);
+            ck6.throwException("[Cheating Essentials] [Reflector] Failed to get a private method!", illegalaccessexception);
         }
         return null;
     }
@@ -230,7 +233,7 @@ public class CheatBase {
     }
     
     /**
-     * @NOTUSED Update pinned frames.
+     * NOT USED Update pinned frames.
      */
 
     public void updatePinnedFrames() {
@@ -242,6 +245,11 @@ public class CheatBase {
             }
         }
     }
+    
+    /**
+     * For mod ticks and enabling/disabling
+     * @param tickable
+     */
 
     public void addToTick(Tickable tickable) {
         if (!tickables.contains(tickable)) {
@@ -254,6 +262,10 @@ public class CheatBase {
             tickables.remove(tickable);
         }
     }
+    
+    /**
+     * Checkkey... umad?
+     */
 
     public void checkForKeyPress() {
 
@@ -294,14 +306,19 @@ public class CheatBase {
         return false;
     }
     
+    /**
+     * Log references and printing
+     */
+   
     
+    public final static ILogAgent LogAgent = new net.minecraft.src.LogAgent("Cheat Pack 2", " [Cheating Essentials] [CB]", (new File(field_CP2_ol, "CheatingEssentials.log")).getAbsolutePath());
+	
     /**
      * References.
      */
     
     
-    public final static ILogAgent LogAgent = new net.minecraft.src.LogAgent("Cheat Pack 2", " [Cheating Essentials] [CB]", (new File(field_CP2_ol, "output-cient.log")).getAbsolutePath());
-	public CheckKey ck;
+    public CheckKey ck;
     public Utils utils;
     public static Minecraft minecraft;
     public ArrayList<Tickable> tickables = new ArrayList<Tickable>();
@@ -317,7 +334,6 @@ public class CheatBase {
     public WaypointManager wmanager;
     public Console console;
     public CheatBase cheatbase;
-    public static CheatPack chk;
     public static CheatBase cb;
 	
 }

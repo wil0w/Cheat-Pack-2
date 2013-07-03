@@ -42,10 +42,11 @@ public class ModManager {
         addWMod(new ModuleFullbright(c, c.minecraft));
         addWMod(new ModuleWaterwalk(c, c.minecraft));
         addWMod(new ModuleXray(c, c.minecraft));
+        addWMod(new ModuleAutoRespawn(c, c.minecraft));
+        // Pretty bugged -> addWMod(new ModuleDayTime(c, c.minecraft));
 
 
-
-        // Player mods
+       // Player mods
         
         addPMod(new ModuleFly(c, c.minecraft));
         addPMod(new ModuleKillAura(c, c.minecraft));
@@ -54,6 +55,7 @@ public class ModManager {
         addPMod(new ModuleSprint(c, c.minecraft));
         addPMod(new ModuleFasterWalk(c, c.minecraft));
         addPMod(new ModuleAutoHealth(c, c.minecraft));
+        addPMod(new ModuleNoKnockback(c, c.minecraft));
 
 
 
@@ -78,7 +80,7 @@ public class ModManager {
         playerMods.add(m);
     }
 
-    public Mod getHackByName(String name) {
+    public Mod getCheatsByName(String name) {
         for (int i = 0; i < mods.size(); i++) {
             if (name.equalsIgnoreCase(mods.get(i).name)) {
                 return mods.get(i);
