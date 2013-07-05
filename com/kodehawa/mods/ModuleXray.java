@@ -34,7 +34,7 @@ public class ModuleXray extends Mod implements Tickable {
 	private static Minecraft mc;
 	
 	public ModuleXray( CheatBase cb, Minecraft m ) {
-		super( Mods.XRAY );
+		super( Mods.Xray );
 		cheatbase = cb;
 		mc = m;
 		// TODO Auto-generated constructor stub
@@ -50,16 +50,17 @@ public class ModuleXray extends Mod implements Tickable {
 	public void onEnable( ) {
 		cheatbase.addToTick( this );
 		Vars.xray = true;
+		mc.gameSettings.gammaSetting = 99999999.0F;
 		mc.renderGlobal.loadRenderers( );
 		cheatbase.getUtils( ).addChatMessage( getActive( ) );
-		cheatbase.getUtils( ).addChatMessage("Good luck finding Diamonds!");
-		cheatbase.getUtils( ).addChatMessage( ChatColour.DARK_GRAY + "For a better experience disable Smooth Lighting.");
+		cheatbase.getUtils( ).addChatMessage("Good luck finding Diamonds! Disable Smooth Lighting.");
 	}
 	
 	@Override
 	public void onDisable( ) {
 		cheatbase.removeFromTick( this );
 		Vars.xray = false;
+		mc.gameSettings.gammaSetting = 0.5F;
 		mc.renderGlobal.loadRenderers( );
 		cheatbase.getUtils( ).addChatMessage( getActive( ) );
 	}

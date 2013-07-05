@@ -10,8 +10,15 @@ public class ModuleTestChestFinder extends Mod implements Tickable {
 	protected Minecraft mc;
 	protected CheatBase cb;
 
+	/**
+	 * I need OpenGL for this. Dammit!
+	 * @param mod
+	 * @param m
+	 * @param c
+	 */
+	
 	public ModuleTestChestFinder(Mods mod, Minecraft m, CheatBase c) {
-		super( Mods.CHESTESP );
+		super( Mods.ChestESP );
 		mc = m;
 		cb = c;
 		// TODO Auto-generated constructor stub

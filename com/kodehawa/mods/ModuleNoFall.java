@@ -15,7 +15,7 @@ public class ModuleNoFall extends Mod implements Tickable {
 	
 	
 	public ModuleNoFall( CheatBase cb, Minecraft m ) {
-		super( Mods.NOFALL );
+		super( Mods.Nofall );
 		cheatbase = cb;
 	}
 	

@@ -24,8 +24,8 @@ package com.kodehawa.mods;
 
 public enum Mods {
 	
-	FULLBRIGHT, KILLAURA, CHESTESP, FLY, NOFALL, SPRINT, XRAY, WATERWALK, NOKNOCKBACK,
-	FASTPLACE, AUTORESPAWN, DAYTIME, WAYPOINTS, INVULNERABLE, FASTERWALK, AUTOHEALTH;
+	Fullbright, Killaura, ChestESP, Fly, Nofall, Sprint, Xray, Waterwalk, NoKnockback,
+	Fastplace, Autorespawn, SetDay, Waypoints, Invulnerable, Fasterwalk, Autohealth;
 	
 	// This is just for my convenience
 	public String getName( ) {

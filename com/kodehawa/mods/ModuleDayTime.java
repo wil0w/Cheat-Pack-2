@@ -11,7 +11,7 @@ public class ModuleDayTime extends Mod implements Tickable {
 	private Minecraft mc;
 	
 	public ModuleDayTime(CheatBase c, Minecraft m) {
-		super( Mods.DAYTIME );
+		super( Mods.SetDay );
 	
 		// TODO Auto-generated constructor stub
 		cb = c;

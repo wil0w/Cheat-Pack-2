@@ -11,7 +11,7 @@ public class ModuleSprint extends Mod implements Tickable {
 	private final Minecraft mc;
 	
 	public ModuleSprint( CheatBase cb, Minecraft m ) {
-		super( Mods.SPRINT );
+		super( Mods.Sprint );
 		cheatbase = cb;
 		mc = m;
 		// TODO Auto-generated constructor stub

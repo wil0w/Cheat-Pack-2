@@ -12,7 +12,7 @@ public class ModuleAutoRespawn extends Mod implements Tickable
 	private Minecraft mc;
 
 	public ModuleAutoRespawn(CheatBase c, Minecraft m) {
-		super( Mods.AUTORESPAWN );
+		super( Mods.Autorespawn );
 		// TODO Auto-generated constructor stub
 		cb = c;
 		mc = m;

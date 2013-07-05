@@ -31,6 +31,7 @@ import org.lwjgl.input.Keyboard;
 import com.kodehawa.core.CheckKey;
 import com.kodehawa.core.KeyManager;
 import com.kodehawa.core.TranslationWritter;
+import com.kodehawa.event.EventHandler;
 import com.kodehawa.gui.CGuiIngame;
 import com.kodehawa.gui.api.components.Frame;
 import com.kodehawa.gui.api.components.ModuleGui;
@@ -38,6 +39,7 @@ import com.kodehawa.gui.api.font.CustomFont;
 import com.kodehawa.gui.api.testing.AlertHandler;
 import com.kodehawa.mods.Mod;
 import com.kodehawa.mods.ModManager;
+import com.kodehawa.mods.ModuleXray;
 import com.kodehawa.players.FrenemyManager;
 import com.kodehawa.util.Console;
 import com.kodehawa.util.Tickable;
@@ -106,11 +108,17 @@ public class CheatBase {
     long now;
     long then;
     
+    /**
+     * A thing for register things, yeah!
+     */
+   
+    private static EventHandler eventHandler;
     
     /**
      * Main method.
      */
     
+
     
     public CheatBase(Minecraft mc) {
         instance = this;
@@ -271,6 +279,10 @@ public class CheatBase {
 
         if (ck.checkKey(Keyboard.KEY_G)) {
             minecraft.displayGuiScreen(modgui);
+        
+        if (ck.checkKey(Keyboard.KEY_X)) {
+        	xray.onEnable();
+        }
 
 
             for (Map.Entry<Mod, Integer> e : keyShit.entrySet()) {
@@ -335,5 +347,6 @@ public class CheatBase {
     public Console console;
     public CheatBase cheatbase;
     public static CheatBase cb;
+    private static ModuleXray xray;
 	
 }

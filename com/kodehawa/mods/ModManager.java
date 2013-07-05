@@ -43,19 +43,20 @@ public class ModManager {
         addWMod(new ModuleWaterwalk(c, c.minecraft));
         addWMod(new ModuleXray(c, c.minecraft));
         addWMod(new ModuleAutoRespawn(c, c.minecraft));
-        // Pretty bugged -> addWMod(new ModuleDayTime(c, c.minecraft));
+        //addWMod(new ModuleDayTime(c, c.minecraft));
 
 
        // Player mods
         
         addPMod(new ModuleFly(c, c.minecraft));
         addPMod(new ModuleKillAura(c, c.minecraft));
-        addPMod(new ModuleInvulnerable(c, c.minecraft));
         addPMod(new ModuleNoFall(c, c.minecraft));
         addPMod(new ModuleSprint(c, c.minecraft));
         addPMod(new ModuleFasterWalk(c, c.minecraft));
         addPMod(new ModuleAutoHealth(c, c.minecraft));
+        addPMod(new ModuleInvulnerable(c, c.minecraft));
         addPMod(new ModuleNoKnockback(c, c.minecraft));
+ 
 
 
 

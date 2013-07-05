@@ -22,25 +22,32 @@
 
 package com.kodehawa.mods;
 
+import net.minecraft.src.Entity;
+import net.minecraft.src.EntityLivingBase;
 import net.minecraft.src.Minecraft;
 
 import com.kodehawa.CheatBase;
-import com.kodehawa.CheatPack;
 import com.kodehawa.util.Tickable;
 
 public class ModuleInvulnerable extends Mod implements Tickable {
 
+	private Entity entity;
+	private EntityLivingBase entitylivingb;
+	
 	public ModuleInvulnerable( CheatBase c, Minecraft m ) {
-		super( Mods.INVULNERABLE );
+		super( Mods.Invulnerable );
 		cheatbase = c;
 		mc = m;
 		// TODO Auto-generated constructor stub
 	}
+	
+	/**
+	 * How many "9"'s I can put? A LOT
+	 */
 
 	@Override
 	public void tick() {
-		mc.thePlayer.capabilities.disableDamage = true;
-		
+		mc.thePlayer.setHealth(999999999999999.0F);
 	}
 
 	@Override
@@ -52,13 +59,13 @@ public class ModuleInvulnerable extends Mod implements Tickable {
 	@Override
 	public void onDisable() {
 		cheatbase.removeFromTick( this );
-		mc.thePlayer.capabilities.disableDamage = false;
+		mc.thePlayer.setHealth(20.0F);
 		cheatbase.getUtils( ).addChatMessage( getActive( ) );
 		
 	}
 	
-	public static boolean invulnerable;
+	
     public CheatBase cheatbase;
     public Minecraft mc;
-    public CheatPack cp;
+    
 }

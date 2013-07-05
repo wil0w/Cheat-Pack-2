@@ -11,7 +11,7 @@ public class ModuleFastPlace extends Mod implements Tickable {
 	Minecraft mc;
 	
 	public ModuleFastPlace( CheatBase cb, Minecraft mc ) {
-		super( Mods.FASTPLACE );
+		super( Mods.Fastplace );
 		// TODO Auto-generated constructor stub
 		this.cb = cb;
 		this.mc = mc;

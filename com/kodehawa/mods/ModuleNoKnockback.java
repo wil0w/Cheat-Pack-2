@@ -12,7 +12,7 @@ public class ModuleNoKnockback extends Mod implements Tickable {
 	private Minecraft mc;
 
 	public ModuleNoKnockback(CheatBase c, Minecraft m) {
-		super(Mods.NOKNOCKBACK);
+		super(Mods.NoKnockback);
 		cb = c;
 		mc = m;
 		// TODO Auto-generated constructor stub

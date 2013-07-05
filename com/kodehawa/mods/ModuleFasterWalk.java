@@ -10,7 +10,7 @@ import com.kodehawa.util.Tickable;
 public class ModuleFasterWalk extends Mod implements Tickable {
 
 	public ModuleFasterWalk( CheatBase c, Minecraft m ) {
-		super( Mods.FASTERWALK );
+		super( Mods.Fasterwalk );
 		cb = c;
 		mc = m;
 		// TODO Auto-generated constructor stub

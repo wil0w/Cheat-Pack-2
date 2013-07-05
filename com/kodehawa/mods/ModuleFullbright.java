@@ -31,7 +31,7 @@ import com.kodehawa.util.Tickable;
 public class ModuleFullbright extends Mod implements Tickable {
 	
 	public ModuleFullbright( CheatBase rc, Minecraft mc ) {
-		super( Mods.FULLBRIGHT );
+		super( Mods.Fullbright );
 		cb = rc;
 		minecraft = mc;
 		oldGamma = minecraft.gameSettings.gammaSetting;
@@ -47,15 +47,13 @@ public class ModuleFullbright extends Mod implements Tickable {
 	@Override
 	public void onDisable( ) {
 		cb.getUtils( ).addChatMessage( getActive( ) );
-		//Fixed!
 		minecraft.gameSettings.gammaSetting = 0.5F;
 		cb.removeFromTick( this );
 	}
 	
 	@Override
 	public void tick( ) {
-		//minecraft.thePlayer.addPotionEffect( new PotionEffect( 16, 99999999, 255, true ) );
-		minecraft.gameSettings.gammaSetting = 782;
+		minecraft.gameSettings.gammaSetting = 100000000.0F;
 	}
 	
 	private final CheatBase cb;

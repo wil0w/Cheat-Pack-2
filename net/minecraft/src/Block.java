@@ -474,7 +474,9 @@ public class Block
 		} else {
 			return Arrays.asList( Vars.xrayBlocks ).contains( blockID );
 		}
-	}
+    	
+    }
+	
 
     /**
      * Returns Returns true if the given side of this block type should be rendered (if it's solid or not), if the

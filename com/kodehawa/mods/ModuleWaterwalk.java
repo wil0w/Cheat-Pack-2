@@ -12,7 +12,7 @@ public class ModuleWaterwalk extends Mod implements Tickable {
 	private final Minecraft mc;
 	
 	public ModuleWaterwalk( CheatBase co, Minecraft m ) {
-		super( Mods.WATERWALK );
+		super( Mods.Waterwalk );
 		cb = co;
 		mc = m;
 		// TODO Auto-generated constructor stub

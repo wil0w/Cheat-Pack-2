@@ -38,7 +38,7 @@ public class ModuleKillAura extends Mod implements Tickable {
 	private EntityLiving elb;
 	
 	public ModuleKillAura( CheatBase rc, Minecraft mc ) {
-		super( Mods.KILLAURA );
+		super( Mods.Killaura );
 		cheatbase = rc;
 		minecraft = mc;
 	}

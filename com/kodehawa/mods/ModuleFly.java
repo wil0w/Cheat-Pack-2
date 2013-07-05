@@ -20,7 +20,7 @@ public class ModuleFly extends Mod implements Tickable {
 	
 	
 	public ModuleFly( CheatBase c, Minecraft m ) {
-		super( Mods.FLY );
+		super( Mods.Fly );
 		cheatbase = c;
 		mc = m;
 		// TODO Auto-generated constructor stub
